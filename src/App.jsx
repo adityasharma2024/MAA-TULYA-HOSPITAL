@@ -24,6 +24,7 @@ const DrRajnishKashyap = lazy(() => import("./Component/Profile/DrRajnishKashyap
 const DrRajanSareen = lazy(() => import("./Component/Profile/DrRajanSareen"));
 const DrAbhishekAggarwal = lazy(() => import("./Component/Profile/DrAbhishekAggarwal"));
 const DrRahulRamteke = lazy(() => import("./Component/Profile/DrRahulRamteke"));
+const RenderProfile = lazy(() => import("./Component/Profile/RenderProfile"));
 
 function App() {
   return (
@@ -52,6 +53,8 @@ function App() {
           <Route path="/profile/dr-rajan-sareen" element={<DrRajanSareen />} />
           <Route path="/profile/dr-abhishek-aggarwal" element={<DrAbhishekAggarwal />} />
           <Route path="/profile/dr-rahul-ramteke" element={<DrRahulRamteke />} />
+          <Route path="/profile/Render_Profile" element={<RenderProfile />} />
+          
           
           {/* Catch-all route */}
           <Route path="*" element={<PageNotFound />} />

@@ -1,17 +1,17 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import tailwindcss from '@tailwindcss/vite'
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import tailwindcss from "@tailwindcss/vite";
+import path from "path";
+import os from "os";
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [
-    react(),
-    tailwindcss(),
-  ],
+  plugins: [react(), tailwindcss()],
+  cacheDir: path.join(os.tmpdir(), "vite-cache-hospital"),
   build: {
     // 'source-map' generates a separate .map file instead of using eval()
     // This is much safer and avoids the CSP "unsafe-eval" error
-    sourcemap: 'inline', 
+    sourcemap: "inline",
   },
   server: {
     // Ensures the development server doesn't use dangerous evaluation logic
@@ -22,5 +22,5 @@ export default defineConfig({
   // If the error persists in development, you can force the dev sourcemap style:
   css: {
     devSourcemap: true,
-  }
-})
+  },
+});

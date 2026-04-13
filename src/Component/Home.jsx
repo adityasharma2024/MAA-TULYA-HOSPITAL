@@ -576,7 +576,7 @@ export default function Home() {
                   <div className="relative aspect-[4/5] rounded-[2rem] overflow-hidden mb-6 shadow-sm">
                     <img src={doc.img} alt={doc.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#3B3486]/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
-                      <Link to={`/find-doctor#${slugify(doc.name)}`} className="w-full py-3 bg-white text-[#3B3486] text-center rounded-xl font-bold shadow-xl transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                      <Link to={`/profile/${slugify(doc.name)}`} className="w-full py-3 bg-white text-[#3B3486] text-center rounded-xl font-bold shadow-xl transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                         View Profile
                       </Link>
                     </div>
