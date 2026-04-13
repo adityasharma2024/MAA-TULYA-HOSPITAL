@@ -225,7 +225,7 @@ const HERO_IMAGES_DARK = [
   },
   {
     id: "hd3",
-    src: "https://t4.ftcdn.net/jpg/00/93/58/75/360_F_93587518_EnSEDdLZLFw184tr9BWOC8OFAmGEIdAN.jpg",
+    src: "./public/front_pic.jpg",
     alt: "Emergency team working at night",
     heading: "24/7 Emergency & Trauma Care",
     sub: "Rapid triage, stabilization, and ambulance coordination",
@@ -517,7 +517,7 @@ export default function Home() {
 
                 <div className="mt-8 pt-6 border-t border-gray-50 flex items-center justify-between">
                   <Link 
-                    to={`/services/${svc.title.toLowerCase().replace(/ /g, '-')}`} 
+                    to="/find_a_doctor" 
                     className="text-sm font-bold text-[#3B3486] flex items-center gap-2 group/link"
                   >
                     View Details 

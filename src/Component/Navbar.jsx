@@ -40,15 +40,7 @@ function Navbar() {
   const navLinks = [
     { label: "Home", path: "/" },
     { label: "About Us", path: "/about" },
-    { 
-      label: "Specialities", 
-      path: "/speciality",
-      subLinks: [
-        { label: "Cardiology", path: "/speciality#cardiology" },
-        { label: "Neurology", path: "/speciality#neurology" },
-        { label: "Orthopedics", path: "/speciality#orthopedics" },
-      ]
-    },
+    { label: "Specialities", path: "/speciality"},
     { label: "Find a Doctor", path: "/find_a_doctor" },
     { label: "Contact Us", path: "/contactUs" },
     { label: "Blogs and News", path: "/Blogs_and_News" },
@@ -129,7 +121,7 @@ function Navbar() {
                 ))}
 
                 <a href={`tel:${EMERGENCY_NUMBER}`} className="group flex items-center px-6 py-2.5 rounded-full text-white font-bold transition-all duration-500 hover:scale-105 shadow-lg bg-gradient-to-r from-red-600 to-orange-500">
-                  <img src="https://www.pushpanjalihospitals.com/public/assets/fontend/img/icons/emergency.png" alt="Ambulance" className="h-6 w-6 mr-3 group-hover:animate-bounce" />
+                  <img src="./public/emergency.webp" alt="Ambulance" className="h-6 w-6 mr-3 group-hover:animate-bounce" />
                   <div className="flex flex-col leading-none">
                     <span className="text-[9px] opacity-90 uppercase font-black">Emergency</span>
                     <span className="text-base font-sans tracking-tight">{EMERGENCY_NUMBER}</span>
@@ -200,7 +192,7 @@ function Navbar() {
             {/* Mobile Footer (Emergency) */}
             <div className="mt-auto pt-8 flex flex-col gap-4">
               <a href={`tel:${EMERGENCY_NUMBER}`} className="flex items-center justify-center gap-4 bg-red-600 text-white p-5 rounded-3xl font-bold shadow-xl animate-emergencyPulse">
-                <img src="https://www.pushpanjalihospitals.com/public/assets/fontend/img/icons/emergency.png" alt="Ambulance" className="h-10 w-10" />
+                <img src="/emergency.webp" alt="Ambulance" className="h-10 w-10" />
                 <div className="text-left">
                   <p className="text-[10px] uppercase font-black opacity-80 tracking-widest leading-none mb-1">24/7 Helpline</p>
                   <p className="text-2xl tracking-tighter leading-none font-sans">{EMERGENCY_NUMBER}</p>
