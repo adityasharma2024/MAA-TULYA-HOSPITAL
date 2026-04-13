@@ -1,7 +1,7 @@
 import React, { useState, useEffect, memo } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { IoIosArrowDown, IoMdCall, IoMdMail } from "react-icons/io";
-import { FaFacebookF, FaInstagram, FaWhatsapp } from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaWhatsapp } from "react-icons/fa6";
 import { FaSquareXTwitter } from "react-icons/fa6";
 
 const SocialIcon = memo(({ Icon, href, label }) => (

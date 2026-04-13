@@ -1,5 +1,6 @@
 import React from "react";
-import { FaPhoneAlt, FaEnvelope } from "react-icons/fa";
+import { FaEnvelope } from "react-icons/fa6";
+import { FaPhoneAlt } from "react-icons/fa";
 
 function ContactUs() {
   return (

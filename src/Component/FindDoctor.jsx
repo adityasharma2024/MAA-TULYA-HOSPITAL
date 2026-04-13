@@ -7,9 +7,8 @@ import {
   FaInstagram,
   FaLinkedinIn,
   FaEnvelope,
-  FaPhoneAlt,
-  FaMapMarkerAlt,
-} from "react-icons/fa";
+} from "react-icons/fa6";
+import { FaPhoneAlt, FaMapMarkerAlt } from "react-icons/fa";
 import { FaSquareXTwitter } from "react-icons/fa6";
 
 function FindDoctor() {
