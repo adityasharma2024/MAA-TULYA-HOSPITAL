@@ -25,7 +25,10 @@ import {
   FaChevronDown,
   FaClinicMedical,
   FaFileDownload,
-  FaDownload,
+  FaDownload, 
+  FaMicroscope, 
+  FaBaby, 
+  FaBone, 
 } from "react-icons/fa";
 
 /* =======================================================
@@ -251,7 +254,14 @@ const JSON_LD = {
   sameAs: ["https://www.facebook.com/your-hospital-page", "https://www.linkedin.com/company/your-hospital"],
   openingHours: "Mo,Tu,We,Th,Fr,Sa,Su 00:00-23:59",
 };
-
+const SERVICES_DATA = [
+  { title: "Emergency Care", blurb: "24/7 critical care with advanced life support and rapid response teams.", icon: <FaAmbulance />, color: "bg-red-50 text-red-600" },
+  { title: "Cardiology", blurb: "Comprehensive heart health including ECG, TMT, and specialist consultations.", icon: <FaStethoscope />, color: "bg-blue-50 text-blue-600" },
+  { title: "Orthopaedics", blurb: "Expert bone and joint care, from fracture management to physiotherapy.", icon: <FaBone />, color: "bg-amber-50 text-amber-600" },
+  { title: "Maternity", blurb: "Compassionate mother and child care with modern labor suites.", icon: <FaBaby />, color: "bg-pink-50 text-pink-600" },
+  { title: "Paediatrics", blurb: "Dedicated healthcare for infants and children in a friendly environment.", icon: <FaSyringe />, color: "bg-green-50 text-green-600" },
+  { title: "Diagnostics", blurb: "Fully automated lab and digital X-ray for precise medical reporting.", icon: <FaMicroscope />, color: "bg-purple-50 text-purple-600" },
+];
 /* =======================================================
    Helper Hooks & Utilities
    ======================================================= */
@@ -313,6 +323,8 @@ export default function Home() {
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [heroImages.length]);
+
+  
 
   return (
     <main className="bg-white text-gray-900 antialiased">
@@ -458,41 +470,130 @@ export default function Home() {
       </section>
 
       {/* SERVICES SECTION */}
-      <section id="services" aria-label="services" className="py-16 bg-gray-50">
+      <section id="services" aria-labelledby="services-heading" className="py-24 bg-[#F8FAFC] relative overflow-hidden">
+        {/* Decorative Background Element for 'Out of the Box' feel */}
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#3B3486]/5 rounded-full blur-3xl -z-10" />
+  
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.header initial={{ opacity: 0, y: 8 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} viewport={{ once: true }}>
-            <h2 className="text-2xl md:text-3xl font-bold text-[#111827]">Services & Specialities</h2>
-            <p className="mt-3 text-gray-600 max-w-3xl">
-              Core clinical services tailored to local needs — emergency care, cardiology, orthopaedics, maternity, paediatrics, diagnostics and more.
+          <motion.header 
+            initial={{ opacity: 0, y: 20 }} 
+            whileInView={{ opacity: 1, y: 0 }} 
+            transition={{ duration: 0.8 }} 
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 id="services-heading" className="text-3xl md:text-4xl font-black text-[#111827] tracking-tight">
+              Specialized Care <span className="text-[#3B3486]">Redefined</span>
+            </h2>
+            <div className="w-20 h-1.5 bg-[#3B3486] mx-auto mt-4 rounded-full" />
+            <p className="mt-6 text-gray-600 max-w-2xl mx-auto text-lg leading-relaxed">
+              Providing Baghpat with world-class clinical excellence. Our multi-speciality wings are equipped with the latest medical technology and expert hands.
             </p>
           </motion.header>
 
-          <div className="mt-8 grid gap-6 grid-cols-1 md:grid-cols-3">
-            {TOPICAL_CONTENT.services.map((svc, i) => (
+          <div className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+            {SERVICES_DATA.map((svc, i) => (
               <motion.article
                 key={i}
-                initial={{ opacity: 0, y: 8 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: i * 0.06 }}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                whileHover={{ y: -10 }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-white p-6 rounded-lg shadow hover:shadow-2xl transform hover:-translate-y-2 transition"
+                className="group relative bg-white border border-gray-100 p-8 rounded-[2rem] shadow-[0_10px_40px_-15px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_60px_-10px_rgba(59,52,134,0.12)] transition-all duration-500"
               >
-                <div className="flex items-start gap-4">
-                  <div className="text-2xl text-[#3B3486] p-3 rounded-full bg-[rgba(59,52,134,0.05)]">
-                    <FaClinicMedical />
-                  </div>
+                {/* Icon Circle */}
+                <div className={`w-14 h-14 ${svc.color} rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform duration-500 shadow-inner`}>
+                  {svc.icon}
+                </div>
 
-                  <div>
-                    <h3 className="font-semibold text-[#111827]">{svc.title}</h3>
-                    <p className="text-gray-600 mt-2">{svc.blurb}</p>
+                <h3 className="text-xl font-bold text-[#111827] group-hover:text-[#3B3486] transition-colors">
+                  {svc.title}
+                </h3>
+          
+                <p className="text-gray-500 mt-3 leading-relaxed text-sm md:text-base">
+                  {svc.blurb}
+                </p>
 
-                    <div className="mt-4 flex items-center gap-3">
-                      <Link to={`/services/${slugify(svc.title)}`} className="text-[#3B3486] hover:underline">
-                        Learn more
+                <div className="mt-8 pt-6 border-t border-gray-50 flex items-center justify-between">
+                  <Link 
+                    to={`/services/${svc.title.toLowerCase().replace(/ /g, '-')}`} 
+                    className="text-sm font-bold text-[#3B3486] flex items-center gap-2 group/link"
+                  >
+                    View Details 
+                    <span className="group-hover/link:translate-x-1 transition-transform">→</span>
+                  </Link>
+            
+                  <a 
+                    href={`tel:${PHONE}`} 
+                    className="p-2.5 rounded-full bg-[#16A34A]/10 text-[#16A34A] hover:bg-[#16A34A] hover:text-white transition-all shadow-sm"
+                    aria-label={`Call for ${svc.title}`}
+                  >
+                    <FaPhoneAlt size={14} />
+                  </a>
+                </div>
+
+                {/* Subtle Accent Glow on Hover */}
+                <div className="absolute inset-0 rounded-[2rem] border-2 border-transparent group-hover:border-[#3B3486]/10 pointer-events-none transition-all" />
+              </motion.article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* DOCTORS SECTION */}
+<section id="doctors" aria-labelledby="doctors-heading" className="py-24 bg-white relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.header 
+            initial={{ opacity: 0, x: -20 }} 
+            whileInView={{ opacity: 1, x: 0 }} 
+            transition={{ duration: 0.8 }} 
+            viewport={{ once: true }}
+            className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6"
+          >
+            <div className="max-w-2xl">
+              <h2 id="doctors-heading" className="text-3xl md:text-4xl font-black text-[#111827]">
+                Meet Our <span className="text-[#3B3486]">Specialists</span>
+              </h2>
+              <p className="mt-4 text-gray-600 text-lg">Experienced clinicians committed to your health.</p>
+            </div>
+            <Link to="/find_a_doctor" className="group flex items-center gap-2 text-[#3B3486] font-bold border-b-2 border-[#3B3486]/10 hover:border-[#3B3486] transition-all pb-1 w-max">
+              View Full Directory <span className="group-hover:translate-x-1 transition-transform">→</span>
+            </Link>
+          </motion.header>
+
+          <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+            {DOCTORS.map((doc, i) => (
+              <motion.article
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: i * 0.05 }}
+                viewport={{ once: true }}
+                className="group"
+              >
+                <div className="relative bg-[#F8FAFC] rounded-[2.5rem] p-4 transition-all duration-500 group-hover:bg-white group-hover:shadow-[0_30px_60px_-15px_rgba(59,52,134,0.15)]">
+                  <div className="relative aspect-[4/5] rounded-[2rem] overflow-hidden mb-6 shadow-sm">
+                    <img src={doc.img} alt={doc.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#3B3486]/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
+                      <Link to={`/find-doctor#${slugify(doc.name)}`} className="w-full py-3 bg-white text-[#3B3486] text-center rounded-xl font-bold shadow-xl transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                        View Profile
                       </Link>
-                      <a href={`tel:${PHONE}`} className="ml-auto inline-flex items-center gap-2 bg-green-600 text-white px-3 py-1 rounded-full">
-                        <FaPhoneAlt /> Call Now
+                    </div>
+                  </div>
+                  <div className="px-2 pb-2">
+                    <h3 className="text-xl font-bold text-[#111827] mb-1">{doc.name}</h3>
+                    <p className="text-[#3B3486] font-medium text-sm flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#3B3486]/30" />
+                      {doc.speciality}
+                    </p>
+                    <div className="mt-5 flex items-center justify-between">
+                      <a href={`tel:${PHONE}`} className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-green-600">
+                        <span className="p-1.5 bg-green-50 rounded-lg"><FaPhoneAlt size={10} /></span> Consult
                       </a>
+                      <div className="flex gap-1">
+                        {[1, 2, 3].map((dot) => <div key={dot} className="w-1 h-1 rounded-full bg-gray-200" />)}
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -501,54 +602,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* DOCTORS SECTION */}
-      <section id="doctors" aria-label="doctors" className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.header initial={{ opacity: 0, y: 8 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}>
-            <h2 className="text-2xl md:text-3xl font-bold text-[#111827]">Our Doctors</h2>
-            <p className="mt-3 text-gray-600 max-w-2xl">
-              Meet the experienced clinicians who deliver care across the hospital’s core departments.
-            </p>
-          </motion.header>
-
-          <div className="mt-8 grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-5">
-            {DOCTORS.map((doc, i) => (
-              <motion.article
-                key={i}
-                initial={{ opacity: 0, y: 8 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: i * 0.04 }}
-                viewport={{ once: true }}
-                className="bg-gray-50 rounded-lg p-4 shadow hover:shadow-lg transition transform hover:-translate-y-1"
-              >
-                <Link to={`/doctors/${slugify(doc.name)}`} className="block">
-                  <div className="w-full h-40 rounded-lg overflow-hidden bg-white">
-                    <img src={doc.img} alt={`${doc.name} - ${doc.speciality}`} className="w-full h-full object-cover" loading="lazy" />
-                  </div>
-
-                  <div className="mt-3">
-                    <h3 className="text-md font-semibold text-[#111827]">{doc.name}</h3>
-                    <p className="text-sm text-gray-600">{doc.speciality}</p>
-
-                    <div className="mt-3 flex items-center gap-2">
-                      <span className="text-xs bg-green-600 text-white px-2 py-1 rounded-full">Consult</span>
-                      <span className="text-xs text-gray-500">Profile</span>
-                    </div>
-                  </div>
-                </Link>
-              </motion.article>
-            ))}
-          </div>
-
-          <div className="mt-6 text-center">
-            <Link to="/doctors" className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gray-200 hover:shadow">
-              View all doctors
-            </Link>
-          </div>
-        </div>
-      </section>
-
       {/* FACILITIES */}
       <section id="facilities" className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -606,7 +659,7 @@ export default function Home() {
           </div>
 
           <div className="mt-6 text-center">
-            <Link to="/reviews" className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gray-200">Read all reviews</Link>
+            <Link to="/about" className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gray-200">Read all reviews</Link>
           </div>
         </div>
       </section>

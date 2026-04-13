@@ -92,6 +92,132 @@ const CATEGORIES = ["All", "General", "Cardiology", "Maternity", "Emergency", "O
  * 2. COMPONENT LOGIC
  * ============================================================================
  */
+
+/**
+ * MAA TULYA PREMIUM FOOTER
+ * Theme: Light / Minimalist / Medical Professional
+ */
+function Footer() {
+  const PHONE = "+918588831732";
+  const EMAIL = "admin.maatulyahospital@gmail.com";
+  const ADDRESS = "Plot No. 12, Sector 9, Baghpat, Uttar Pradesh";
+
+  return (
+    <footer className="bg-white border-t border-slate-100 pt-24 pb-12 px-6">
+      <div className="max-w-7xl mx-auto">
+        
+        {/* Upper Footer: Branding & Quick Actions */}
+        <div className="grid lg:grid-cols-12 gap-16 mb-20">
+          
+          {/* Column 1: Brand Personality */}
+          <div className="lg:col-span-4">
+            <a href="/" className="inline-block mb-8">
+              <h3 className="text-2xl font-black text-[#3B3486] tracking-tighter">
+                MAA TULYA <span className="text-green-600">HOSPITAL</span>
+              </h3>
+            </a>
+            <p className="text-slate-400 font-medium leading-relaxed mb-8 max-w-sm">
+              Baghpat's premier healthcare destination, providing multi-speciality medical 
+              services with a focus on clinical excellence and patient safety.
+            </p>
+            <div className="flex gap-4">
+              {[FaFacebook, FaInstagram].map((Icon, i) => (
+                <a 
+                  key={i} 
+                  href="#" 
+                  className="w-10 h-10 rounded-xl bg-slate-50 flex items-center justify-center text-[#3B3486] hover:bg-green-600 hover:text-white transition-all shadow-sm"
+                >
+                  <Icon size={14} />
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Column 2: Navigation Links */}
+          <div className="lg:col-span-2 md:col-span-4">
+            <h4 className="text-[#3B3486] font-black uppercase text-[10px] tracking-[0.3em] mb-8">
+              Quick Links
+            </h4>
+            <ul className="space-y-4">
+              {["Home", "Doctors", "Services", "About Us", "Contact"].map((link) => (
+                <li key={link}>
+                  <a 
+                    href="#" 
+                    className="text-slate-500 hover:text-green-600 font-bold text-sm transition-colors flex items-center gap-2 group"
+                  >
+                    <FaChevronRight className="text-[8px] opacity-0 group-hover:opacity-100 transition-all" />
+                    {link}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Column 3: Medical Departments */}
+          <div className="lg:col-span-2 md:col-span-4">
+            <h4 className="text-[#3B3486] font-black uppercase text-[10px] tracking-[0.3em] mb-8">
+              Specialties
+            </h4>
+            <ul className="space-y-4 text-sm font-bold text-slate-500">
+              <li className="hover:text-[#3B3486] cursor-pointer">Cardiology</li>
+              <li className="hover:text-[#3B3486] cursor-pointer">Maternity & NICU</li>
+              <li className="hover:text-[#3B3486] cursor-pointer">Orthopaedics</li>
+              <li className="hover:text-[#3B3486] cursor-pointer">Neurology</li>
+              <li className="hover:text-[#3B3486] cursor-pointer">General Surgery</li>
+            </ul>
+          </div>
+
+          {/* Column 4: High-Conversion Contact Card */}
+          <div className="lg:col-span-4">
+            <div className="bg-slate-50 p-8 rounded-[2.5rem] border border-slate-100 relative overflow-hidden">
+              <div className="relative z-10">
+                <h4 className="text-[#3B3486] font-black uppercase text-[10px] tracking-widest mb-6 flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" /> 
+                  Emergency Desk
+                </h4>
+                <a 
+                  href={`tel:${PHONE}`} 
+                  className="text-2xl font-black text-[#3B3486] hover:text-green-600 transition-colors block mb-2"
+                >
+                  {PHONE}
+                </a>
+                <p className="text-slate-400 text-[10px] font-bold mb-8">{ADDRESS}</p>
+                <a 
+                  href={`https://wa.me/${PHONE.replace('+', '')}`} 
+                  className="flex items-center justify-center gap-3 bg-green-600 text-white py-4 rounded-2xl font-black uppercase text-[10px] tracking-widest hover:bg-[#3B3486] transition-all shadow-lg"
+                >
+                  <FaWhatsapp size={16} /> WhatsApp Support
+                </a>
+              </div>
+              {/* Subtle background decoration */}
+              <div className="absolute -bottom-10 -right-10 text-slate-100 opacity-50">
+                <FaMapMarkerAlt size={120} />
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        {/* Lower Footer: Legals & Attribution */}
+        <div className="pt-10 border-t border-slate-50 flex flex-col md:flex-row justify-between items-center gap-6">
+          <p className="text-[10px] font-black uppercase tracking-[0.4em] text-slate-300">
+            © 2026 Maa Tulya Hospital — Clinical Integrity & Trust
+          </p>
+          <div className="flex gap-8">
+            <a href="#" className="text-slate-400 text-[9px] font-black uppercase tracking-widest hover:text-[#3B3486]">
+              Privacy Policy
+            </a>
+            <a href="#" className="text-slate-400 text-[9px] font-black uppercase tracking-widest hover:text-[#3B3486]">
+              Terms of Use
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </footer>
+  );
+}
+
 export default function BlogsAndNews() {
   const [activeCategory, setActiveCategory] = useState("All");
   const [searchTerm, setSearchTerm] = useState("");
@@ -358,94 +484,7 @@ export default function BlogsAndNews() {
         </AnimatePresence>
       </div>
 
-      {/* ======================================================================
-          PREMIUM MULTI-COLUMN FOOTER
-          ====================================================================== */}
-      <footer className="bg-[#1E1B4B] text-white pt-32 pb-12 px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-20 mb-32">
-            
-            {/* Branding Column */}
-            <div className="space-y-8">
-              <div>
-                <h2 className="text-3xl font-black tracking-tighter mb-2">MAA TULYA</h2>
-                <span className="text-green-500 font-black text-[14px] uppercase tracking-[6px]">HOSPITAL</span>
-              </div>
-              <p className="text-white/40 text-sm font-medium leading-loose">
-                Established as the premier healthcare destination in Baghpat, we combine clinical excellence with deep human compassion to save lives every day.
-              </p>
-              <div className="flex gap-4">
-                {[FaFacebook, FaInstagram, FaYoutube, FaWhatsapp].map((Icon, i) => (
-                  <button key={i} className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-green-500 hover:border-green-500 transition-all text-white">
-                    <Icon size={16} />
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* Quick Navigation */}
-            <div>
-              <h4 className="font-black uppercase text-[10px] tracking-[0.3em] text-green-500 mb-10">Department Links</h4>
-              <ul className="space-y-5 text-sm font-bold text-white/50">
-                {["Cardiology", "Neurology", "Obstetrics", "Orthopaedics", "Emergency Care", "OPD Schedule"].map((link, i) => (
-                  <li key={i} className="hover:text-white flex items-center gap-3 cursor-pointer group transition-colors">
-                    <FaChevronRight className="text-[8px] group-hover:translate-x-2 transition-transform" /> {link}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Direct Contact */}
-            <div>
-              <h4 className="font-black uppercase text-[10px] tracking-[0.3em] text-green-500 mb-10">Patient Help</h4>
-              <div className="space-y-8">
-                <div className="flex gap-5">
-                  <div className="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center text-green-500 border border-white/5">
-                    <FaPhoneAlt />
-                  </div>
-                  <div>
-                    <p className="text-[10px] font-black text-white/30 uppercase tracking-widest mb-1">Emergency 24/7</p>
-                    <p className="text-lg font-black tracking-tight">+91 84457 41993</p>
-                  </div>
-                </div>
-                <div className="flex gap-5">
-                  <div className="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center text-blue-400 border border-white/5">
-                    <FaEnvelope />
-                  </div>
-                  <div>
-                    <p className="text-[10px] font-black text-white/30 uppercase tracking-widest mb-1">Email Support</p>
-                    <p className="text-sm font-bold truncate">info@maatulyahospital.com</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Location / CTA */}
-            <div className="bg-[#3B3486] p-10 rounded-[3.5rem] shadow-2xl relative overflow-hidden group">
-              <FaMapMarkerAlt className="text-6xl text-white/5 absolute -top-4 -right-4" />
-              <h4 className="text-xl font-black mb-4 leading-tight">Visit Our Center</h4>
-              <p className="text-white/60 text-xs font-medium mb-8">
-                Main Road, Near Civil Lines, Baghpat, Uttar Pradesh - 250609
-              </p>
-              <button className="w-full bg-white text-[#3B3486] py-4 rounded-xl font-black uppercase text-[10px] tracking-[0.2em] shadow-xl hover:bg-green-500 hover:text-white transition-all">
-                Get Directions
-              </button>
-            </div>
-          </div>
-
-          {/* Legal Bar */}
-          <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
-            <p className="text-white/20 text-[10px] font-black uppercase tracking-[0.4em] text-center md:text-left">
-              © 2026 Maa Tulya Multi-Specialty Hospital. All Rights Reserved.
-            </p>
-            <div className="flex gap-8 text-white/20 text-[10px] font-black uppercase tracking-widest">
-              <span className="hover:text-green-500 cursor-pointer transition-colors">Privacy Policy</span>
-              <span className="hover:text-green-500 cursor-pointer transition-colors">Terms of Use</span>
-              <span className="hover:text-green-500 cursor-pointer transition-colors">Site Map</span>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

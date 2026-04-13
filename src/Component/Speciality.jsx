@@ -229,7 +229,8 @@ function Specialities() {
               <li>✔️ Emergency & Trauma Care</li>
               <li>✔️ Multi-Speciality OPD</li>
               <li>✔️ Diagnostic & Lab Services</li>
-              <li>✔️ Maternity & Child Care</li>
+              <li>✔️ Maternity & Child Car
+              </li>
             </ul>
           </div>
         </div>

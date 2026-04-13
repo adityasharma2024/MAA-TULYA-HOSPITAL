@@ -7,10 +7,12 @@ import {
   FaEnvelope,
   FaMapMarkerAlt,
   FaClock,
+  FaFacebook,
   FaFacebookF,
   FaInstagram,
   FaLinkedinIn,
   FaWhatsapp,
+  FaChevronRight,
   FaShieldAlt,
   FaUserEdit,
   FaPaperPlane
@@ -338,54 +340,116 @@ export default function ContactUs() {
       </section>
 
       {/* --- FOOTER: CONSISTENT BRANDING --- */}
-      <footer className="bg-[#0a0a0b] text-gray-500 py-24 px-6">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-16">
-          <div className="col-span-1 md:col-span-2 space-y-10">
-            <h4 className="text-white font-bold text-4xl tracking-tighter uppercase italic">Maa Tulya</h4>
-            <p className="max-w-sm leading-relaxed text-sm">
-              Maa Tulya Hospital is dedicated to providing high-quality healthcare 
-              with advanced technology and a patient-first approach. Serving 
-              communities with integrity since 2018.
+      <footer className="bg-white border-t border-slate-100 pt-24 pb-12 px-6">
+        <div className="max-w-7xl mx-auto">
+          
+          {/* Upper Footer: Branding & Quick Actions */}
+          <div className="grid lg:grid-cols-12 gap-16 mb-20">
+            
+            {/* Column 1: Brand Personality */}
+            <div className="lg:col-span-4">
+              <a href="/" className="inline-block mb-8">
+                <h3 className="text-2xl font-black text-[#3B3486] tracking-tighter">
+                  MAA TULYA <span className="text-green-600">HOSPITAL</span>
+                </h3>
+              </a>
+              <p className="text-slate-400 font-medium leading-relaxed mb-8 max-w-sm">
+                Baghpat's premier healthcare destination, providing multi-speciality medical 
+                services with a focus on clinical excellence and patient safety.
+              </p>
+              <div className="flex gap-4">
+                {[FaFacebook, FaInstagram].map((Icon, i) => (
+                  <a 
+                    key={i} 
+                    href="#" 
+                    className="w-10 h-10 rounded-xl bg-slate-50 flex items-center justify-center text-[#3B3486] hover:bg-green-600 hover:text-white transition-all shadow-sm"
+                  >
+                    <Icon size={14} />
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            {/* Column 2: Navigation Links */}
+            <div className="lg:col-span-2 md:col-span-4">
+              <h4 className="text-[#3B3486] font-black uppercase text-[10px] tracking-[0.3em] mb-8">
+                Quick Links
+              </h4>
+              <ul className="space-y-4">
+                {["Home", "Doctors", "Services", "About Us", "Contact"].map((link) => (
+                  <li key={link}>
+                    <a 
+                      href="#" 
+                      className="text-slate-500 hover:text-green-600 font-bold text-sm transition-colors flex items-center gap-2 group"
+                    >
+                      <FaChevronRight className="text-[8px] opacity-0 group-hover:opacity-100 transition-all" />
+                      {link}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Column 3: Medical Departments */}
+            <div className="lg:col-span-2 md:col-span-4">
+              <h4 className="text-[#3B3486] font-black uppercase text-[10px] tracking-[0.3em] mb-8">
+                Specialties
+              </h4>
+              <ul className="space-y-4 text-sm font-bold text-slate-500">
+                <li className="hover:text-[#3B3486] cursor-pointer">Cardiology</li>
+                <li className="hover:text-[#3B3486] cursor-pointer">Maternity & NICU</li>
+                <li className="hover:text-[#3B3486] cursor-pointer">Orthopaedics</li>
+                <li className="hover:text-[#3B3486] cursor-pointer">Neurology</li>
+                <li className="hover:text-[#3B3486] cursor-pointer">General Surgery</li>
+              </ul>
+            </div>
+
+            {/* Column 4: High-Conversion Contact Card */}
+            <div className="lg:col-span-4">
+              <div className="bg-slate-50 p-8 rounded-[2.5rem] border border-slate-100 relative overflow-hidden">
+                <div className="relative z-10">
+                  <h4 className="text-[#3B3486] font-black uppercase text-[10px] tracking-widest mb-6 flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" /> 
+                    Emergency Desk
+                  </h4>
+                  <a 
+                    href={`tel:+918588831732`} 
+                    className="text-2xl font-black text-[#3B3486] hover:text-green-600 transition-colors block mb-2"
+                  >
+                    +918588831732
+                  </a>
+                  <p className="text-slate-400 text-[10px] font-bold mb-8">Plot No. 12, Sector 9, Baghpat, Uttar Pradesh</p>
+                  <a 
+                    href={`https://wa.me/918588831732`} 
+                    className="flex items-center justify-center gap-3 bg-green-600 text-white py-4 rounded-2xl font-black uppercase text-[10px] tracking-widest hover:bg-[#3B3486] transition-all shadow-lg"
+                  >
+                    <FaWhatsapp size={16} /> WhatsApp Support
+                  </a>
+                </div>
+                {/* Subtle background decoration */}
+                <div className="absolute -bottom-10 -right-10 text-slate-100 opacity-50">
+                  <FaMapMarkerAlt size={120} />
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          {/* Lower Footer: Legals & Attribution */}
+          <div className="pt-10 border-t border-slate-50 flex flex-col md:flex-row justify-between items-center gap-6">
+            <p className="text-[10px] font-black uppercase tracking-[0.4em] text-slate-300">
+              © 2026 Maa Tulya Hospital — Clinical Integrity & Trust
             </p>
-            <div className="flex gap-4">
-              {CONTACT_CONFIG.socials.map((soc, i) => (
-                <a key={i} href={soc.link} aria-label={soc.label} className="w-12 h-12 rounded-full border border-white/5 flex items-center justify-center hover:bg-green-600 hover:text-white transition-all duration-300">
-                  {soc.icon}
-                </a>
-              ))}
+            <div className="flex gap-8">
+              <a href="#" className="text-slate-400 text-[9px] font-black uppercase tracking-widest hover:text-[#3B3486]">
+                Privacy Policy
+              </a>
+              <a href="#" className="text-slate-400 text-[9px] font-black uppercase tracking-widest hover:text-[#3B3486]">
+                Terms of Use
+              </a>
             </div>
           </div>
 
-          <div>
-            <h5 className="text-white font-bold mb-8 uppercase text-xs tracking-widest">Navigation</h5>
-            <ul className="space-y-5 text-sm">
-              <li><Link to="/about" className="hover:text-green-400 transition-colors italic">Our Medical Story</Link></li>
-              <li><Link to="/specialities" className="hover:text-green-400 transition-colors italic">Centers of Excellence</Link></li>
-              <li><Link to="/contact" className="hover:text-green-400 transition-colors italic">Help Desk</Link></li>
-            </ul>
-          </div>
-
-          <div className="space-y-8">
-            <h5 className="text-white font-bold mb-8 uppercase text-xs tracking-widest">Reach Out</h5>
-            <div className="flex items-start gap-4 text-sm">
-              <FaMapMarkerAlt className="mt-1 text-green-500" />
-              <span>{CONTACT_CONFIG.address}</span>
-            </div>
-            <div className="flex items-center gap-4 text-sm font-bold text-white">
-              <FaPhoneAlt className="text-green-500" />
-              <span>{CONTACT_CONFIG.phones[0]}</span>
-            </div>
-          </div>
-        </div>
-
-        <div className="max-w-7xl mx-auto mt-24 pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
-          <p className="text-[10px] tracking-widest uppercase opacity-40 italic">
-            © {new Date().getFullYear()} Maa Tulya Hospital | All Clinical Rights Reserved
-          </p>
-          <div className="flex items-center gap-3 text-[10px] tracking-widest uppercase">
-            <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-            Designed & Developed by <span className="text-white font-bold">ADITYA SHARMA</span>
-          </div>
         </div>
       </footer>
     </main>
