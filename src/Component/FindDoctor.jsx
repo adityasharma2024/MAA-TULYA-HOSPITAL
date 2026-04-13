@@ -282,10 +282,6 @@ export default function FindDoctor() {
     });
   }, [activeSpecialty, searchTerm]);
 
-  /**
-   * --- PROFILE VIEW WITH CLICK-TO-CALL ---
-   */
-
   return (
     <div className="bg-slate-50 min-h-screen pt-[calc(var(--nav-height)+20px)] flex flex-col">
       <Helmet>
