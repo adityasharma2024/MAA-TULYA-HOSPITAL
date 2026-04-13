@@ -377,7 +377,7 @@ export default function FindDoctor() {
                         <Link
                           to="/profile/Render_Profile"
                           state={{ doc }}
-                          className="flex items-center justify-center gap-3 w-full border-2 border-slate-100 text-[#3B3486] py-4 rounded-xl font-black uppercase text-[10px] tracking-widest hover:bg-slate-50 transition-all text-center"
+                          className="flex items-center justify-center gap-3 w-full bg-slate-50 text-[#3B3486] py-4 rounded-xl font-black uppercase text-[10px] tracking-widest hover:bg-[#3B3486] hover:text-white transition-all shadow-sm"
                         >
                           <FaUserMd size={12} />
                           View Clinical Profile
