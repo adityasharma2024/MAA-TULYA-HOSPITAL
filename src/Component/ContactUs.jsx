@@ -2,6 +2,7 @@ import React, { useState, useEffect, useMemo, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Helmet } from "react-helmet";
+import { toast } from "sonner";
 import {
   FaPhoneAlt,
   FaEnvelope,
@@ -84,7 +85,7 @@ export default function ContactUs() {
     // Validation: Math Check
     const expectedSum = captchaNums.a + captchaNums.b;
     if (parseInt(formData.captcha) !== expectedSum) {
-      alert(`Security check failed. ${captchaNums.a} + ${captchaNums.b} is not ${formData.captcha}.`);
+      toast.error(`Security check failed. ${captchaNums.a} + ${captchaNums.b} is not ${formData.captcha}.`);
       generateCaptcha();
       setFormData(prev => ({ ...prev, captcha: "" }));
       setIsLoading(false);

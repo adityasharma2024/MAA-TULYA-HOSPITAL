@@ -28,7 +28,8 @@ import {
   FaDownload, 
   FaMicroscope, 
   FaBaby, 
-  FaBone, 
+  FaBone,
+  FaPlus,
 } from "react-icons/fa";
 
 /* =======================================================
@@ -897,11 +898,17 @@ function Footer() {
 
 function StatCard({ label, value, icon }) {
   return (
-    <motion.div whileHover={{ scale: 1.03 }} className="bg-white p-3 rounded-lg shadow flex items-center gap-3 border">
-      <div className="text-2xl text-[#3B3486]">{icon}</div>
-      <div>
-        <div className="text-sm text-gray-500">{label}</div>
-        <div className="font-semibold">{value}</div>
+    <motion.div 
+      whileHover={{ y: -5, boxShadow: "0px 20px 40px rgba(59, 52, 134, 0.1)" }}
+      className="group relative overflow-hidden bg-white p-5 rounded-2xl flex items-center gap-4 border border-gray-100"
+    >
+      <div className="absolute inset-0 bg-gradient-to-br from-[#3B3486]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+      <div className="relative z-10 p-3 bg-[#3B3486]/10 rounded-xl text-[#3B3486] group-hover:bg-[#3B3486] group-hover:text-white transition-colors duration-300">
+        {icon}
+      </div>
+      <div className="relative z-10">
+        <div className="text-xs font-bold uppercase tracking-wider text-gray-400 group-hover:text-[#3B3486] transition-colors">{label}</div>
+        <div className="text-xl font-bold text-gray-800">{value}</div>
       </div>
     </motion.div>
   );
@@ -917,15 +924,31 @@ function InfoCard({ icon, title, text }) {
   );
 }
 
-function PriceCard({ title, price, desc }) {
+function PriceCard({ title, price, desc, popular }) {
   return (
-    <motion.div whileHover={{ scale: 1.03 }} className="bg-white p-6 rounded-lg shadow border">
-      <h4 className="font-semibold text-[#111827]">{title}</h4>
-      <div className="mt-2 text-2xl font-bold text-green-600">{price}</div>
-      <p className="text-gray-600 mt-2">{desc}</p>
-      <div className="mt-4">
-        <Link to="/contact" className="inline-flex items-center gap-2 px-3 py-2 bg-[#3B3486] text-white rounded-full">Discuss Package</Link>
+    <motion.div 
+      whileHover={{ y: -10 }}
+      className={`relative p-8 rounded-3xl border-2 flex flex-col ${popular ? "border-[#3B3486] shadow-2xl" : "border-gray-100 bg-white"}`}
+    >
+      {popular && <span className="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#3B3486] text-white px-4 py-1 rounded-full text-sm">Most Popular</span>}
+      <h4 className="text-lg font-bold text-gray-900">{title}</h4>
+      <div className="my-6">
+        <span className="text-4xl font-black text-[#3B3486]">{price}</span>
+        <span className="text-gray-400 text-sm">/ visit</span>
       </div>
+      <p className="text-gray-500 mb-8 flex-grow">{desc}</p>
+      <Link 
+        to="/contact" 
+        className="relative overflow-hidden group bg-[#3B3486] text-white text-center py-4 rounded-xl font-bold transition-transform active:scale-95"
+      >
+        <span className="relative z-10 text-white">Discuss Package</span>
+        <motion.div 
+          initial={{ x: "-100%" }}
+          whileHover={{ x: "100%" }}
+          transition={{ duration: 0.5 }}
+          className="absolute inset-0 bg-white/20 skew-x-12"
+        />
+      </Link>
     </motion.div>
   );
 }
@@ -948,23 +971,29 @@ function FeatureCard({ title, text }) {
   );
 }
 
-function FAQ({ q, a }) {
+function FAQ({ q, a, index }) {
   const [open, setOpen] = useState(false);
   return (
-    <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 0.6 }} className="bg-white p-4 rounded-lg shadow">
-      <button onClick={() => setOpen((s) => !s)} className="w-full text-left flex items-center justify-between">
-        <div>
-          <h4 className="font-semibold text-[#111827]">{q}</h4>
-        </div>
-        <div className={`transform transition ${open ? "rotate-180" : ""}`}>
-          <FaChevronDown />
-        </div>
+    <motion.div 
+      layout
+      transition={{ type: "spring", stiffness: 300, damping: 30 }}
+      className={`mb-4 overflow-hidden rounded-2xl border transition-colors ${open ? "border-[#3B3486] bg-[#3B3486]/5" : "border-gray-200 bg-white"}`}
+    >
+      <button onClick={() => setOpen(!open)} className="w-full p-5 text-left flex items-center justify-between">
+        <h4 className={`font-medium pr-4 ${open ? "text-[#3B3486]" : "text-gray-900"}`}>{q}</h4>
+        <motion.div animate={{ rotate: open ? 45 : 0 }} className="flex-shrink-0 text-[#3B3486]">
+          <FaPlus />
+        </motion.div>
       </button>
-
       <AnimatePresence>
         {open && (
-          <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} className="mt-3 text-gray-600">
-            {a}
+          <motion.div 
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            className="px-5 pb-5 text-gray-600 leading-relaxed"
+          >
+            <div className="pt-2 border-t border-gray-100">{a}</div>
           </motion.div>
         )}
       </AnimatePresence>

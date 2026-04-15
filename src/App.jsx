@@ -1,6 +1,8 @@
 import React, { Suspense, lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
+import { Toaster } from 'sonner';
 import Navbar from './Component/Navbar';
+import ScrollToTop from './Component/ScrollToTop';
 
 // 1. CRITICAL COMPONENT (Loaded immediately)
 import Home from "./Component/Home";
@@ -25,12 +27,13 @@ const DrRajnishKashyap = lazy(() => import("./Component/Profile/DrRajnishKashyap
 const DrRajanSareen = lazy(() => import("./Component/Profile/DrRajanSareen"));
 const DrAbhishekAggarwal = lazy(() => import("./Component/Profile/DrAbhishekAggarwal"));
 const DrRahulRamteke = lazy(() => import("./Component/Profile/DrRahulRamteke"));
-const RenderProfile = lazy(() => import("./Component/Profile/RenderProfile"));
+const RenderProfile = lazy(() => import("./Component/RenderProfile"));
 
 function App() {
   return (
     <>
       <Navbar />
+      <ScrollToTop />
       {/* 3. SUSPENSE: This shows a tiny "blank" space or a loader 
              while the specific page chunks are being downloaded */}
       <Suspense fallback={<div style={{ height: '100vh', backgroundColor: '#ffffff' }}></div>}>
@@ -62,6 +65,7 @@ function App() {
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </Suspense>
+      <Toaster position="top-center" richColors />
     </>
   );
 }
