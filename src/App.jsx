@@ -12,6 +12,7 @@ const PageNotFound = lazy(() => import("./Component/PageNotFound"));
 const ContactUS = lazy(() => import("./Component/ContactUs"));
 const AboutUS = lazy(() => import("./Component/AboutUs"));
 const BlogsandNews = lazy(() => import("./Component/BlogsandNews"));
+const RenderBlogs = lazy(() => import("./Component/RenderBlogs"));
 
 // Doctor Profiles (Lazy loaded to break the chain)
 const DrPrashantSharma = lazy(() => import("./Component/Profile/DrPrashantSharma"));
@@ -40,6 +41,7 @@ function App() {
           <Route path="/contactUs" element={<ContactUS />} />
           <Route path="/about" element={<AboutUS />} />
           <Route path="/Blogs_and_News" element={<BlogsandNews />} />
+          <Route path="/renderblogs" element={<RenderBlogs />} />
           
           
           {/* Profiles */}

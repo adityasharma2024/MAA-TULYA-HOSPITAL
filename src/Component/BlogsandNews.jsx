@@ -1,6 +1,7 @@
 import React, { useState, useMemo, useEffect } from "react";
 import { Helmet } from "react-helmet";
 import { motion, AnimatePresence } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import { 
   FaCalendarAlt, FaChevronRight, FaClock, FaSearch, FaArrowLeft, 
   FaInstagram, FaFacebook, FaYoutube, FaWhatsapp, FaPhoneAlt, 
@@ -221,12 +222,7 @@ function Footer() {
 export default function BlogsAndNews() {
   const [activeCategory, setActiveCategory] = useState("All");
   const [searchTerm, setSearchTerm] = useState("");
-  const [selectedPost, setSelectedPost] = useState(null);
-
-  // Sync scroll on content change
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }, [selectedPost]);
+  const navigate = useNavigate();
 
   // Filtering Logic
   const filteredPosts = useMemo(() => {
@@ -239,102 +235,20 @@ export default function BlogsAndNews() {
 
   /**
    * --------------------------------------------------------------------------
-   * ARTICLE DETAIL VIEW
-   * --------------------------------------------------------------------------
-   */
-  const renderDetailView = (post) => (
-    <motion.article 
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -20 }}
-      className="max-w-5xl mx-auto px-6 py-20"
-    >
-      <button 
-        onClick={() => setSelectedPost(null)}
-        className="flex items-center gap-3 text-[#3B3486] font-black uppercase text-[10px] tracking-[0.3em] mb-12 group hover:text-green-600 transition-colors"
-      >
-        <FaArrowLeft className="group-hover:-translate-x-2 transition-transform" /> Back to Newsroom
-      </button>
-
-      <div className="relative rounded-[4rem] overflow-hidden mb-16 shadow-2xl h-[300px] md:h-[500px]">
-        <img src={post.img} alt={post.title} className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end p-12">
-          <div>
-            <span className="bg-green-500 text-white px-6 py-2 rounded-full text-[10px] font-black uppercase tracking-widest mb-6 inline-block">
-              {post.category}
-            </span>
-            <h1 className="text-3xl md:text-6xl font-black text-white tracking-tighter leading-tight">
-              {post.title}
-            </h1>
-          </div>
-        </div>
-      </div>
-
-      <div className="grid lg:grid-cols-12 gap-16">
-        <div className="lg:col-span-8">
-          <div className="flex items-center gap-8 mb-10 pb-10 border-b border-slate-200">
-            <div className="flex items-center gap-3">
-              <div className="w-12 h-12 bg-[#3B3486] rounded-full flex items-center justify-center text-white">
-                <FaUserMd />
-              </div>
-              <div>
-                <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest leading-none mb-1">Author</p>
-                <p className="text-sm font-bold text-[#3B3486]">{post.author}</p>
-              </div>
-            </div>
-            <div className="flex items-center gap-3">
-              <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-green-600">
-                <FaCalendarAlt />
-              </div>
-              <div>
-                <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest leading-none mb-1">Published</p>
-                <p className="text-sm font-bold text-[#3B3486]">{post.date}</p>
-              </div>
-            </div>
-          </div>
-
-          <div 
-            className="prose prose-slate prose-lg max-w-none text-slate-600 font-medium leading-loose
-              prose-h2:text-[#3B3486] prose-h2:font-black prose-h2:text-4xl prose-h2:tracking-tighter
-              prose-h3:text-green-600 prose-h3:font-black prose-li:marker:text-green-500"
-            dangerouslySetInnerHTML={{ __html: post.content }}
-          />
-        </div>
-
-        <aside className="lg:col-span-4 space-y-8">
-          <div className="bg-[#3B3486] p-10 rounded-[3rem] text-white relative overflow-hidden group">
-            <FaHeartbeat className="absolute -bottom-10 -right-10 text-[12rem] text-white/5 group-hover:scale-110 transition-transform duration-1000" />
-            <h4 className="text-2xl font-black mb-4 relative z-10 leading-tight">Contact Maa Tulya Emergency</h4>
-            <p className="text-white/60 text-sm mb-10 relative z-10">Our 24/7 trauma center is always ready to assist you in Baghpat.</p>
-            <a href="tel:8445741993" className="block w-full bg-green-500 text-center py-5 rounded-2xl font-black uppercase text-[10px] tracking-widest hover:bg-white hover:text-[#3B3486] transition-all relative z-10 shadow-xl shadow-black/20">
-              Call Helpline
-            </a>
-          </div>
-        </aside>
-      </div>
-    </motion.article>
-  );
-
-  /**
-   * --------------------------------------------------------------------------
    * MAIN INDEX VIEW
    * --------------------------------------------------------------------------
    */
   return (
     <div className="bg-slate-50 min-h-screen pt-[calc(var(--nav-height)+20px)] flex flex-col font-sans">
       <Helmet>
-        <title>{selectedPost ? selectedPost.title : "Insights & News"} | Maa Tulya Hospital</title>
+        <title>Insights & News | Maa Tulya Hospital</title>
       </Helmet>
 
       <div className="flex-grow">
-        <AnimatePresence mode="wait">
-          {selectedPost ? renderDetailView(selectedPost) : (
-            <motion.div 
-              key="index"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-            >
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+        >
               {/* Header Section */}
               <section className="px-6 py-20 text-center relative">
                 <div className="max-w-4xl mx-auto relative z-10">
@@ -423,7 +337,7 @@ export default function BlogsAndNews() {
                               {post.excerpt}
                             </p>
                             <button 
-                              onClick={() => setSelectedPost(post)}
+                              onClick={() => navigate("/renderblogs", { state: { post } })}
                               className="mt-auto flex items-center gap-3 text-[#3B3486] font-black text-[10px] uppercase tracking-[0.2em] group/btn"
                             >
                               View Full Report 
@@ -480,11 +394,9 @@ export default function BlogsAndNews() {
                 </div>
               </section>
             </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
+          </div>
 
-      <Footer />
-    </div>
-  );
-}
+          <Footer />
+        </div>
+      );
+    }
