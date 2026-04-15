@@ -1,4 +1,4 @@
-import React, { useState, useEffect, memo } from "react";
+import React, { useState, useEffect, useRef, memo } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { IoIosArrowDown, IoMdCall, IoMdMail } from "react-icons/io";
 import { FaFacebookF, FaInstagram, FaWhatsapp } from "react-icons/fa";
@@ -20,22 +20,26 @@ function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
+  const scrolledRef = useRef(false);
   const navigate = useNavigate();
   const EMERGENCY_NUMBER = "8445741993";
 
-  // STABLE SCROLL ENGINE: Prevents jitter by creating a 60px "Safety Zone"
+  // STABLE SCROLL ENGINE: Prevents jitter by preserving a single listener and avoiding repeated state updates
   useEffect(() => {
     const handleScroll = () => {
       const offset = window.scrollY;
-      if (scrolled) {
-        if (offset < 60) setScrolled(false);
-      } else {
-        if (offset > 120) setScrolled(true);
+      if (!scrolledRef.current && offset > 120) {
+        scrolledRef.current = true;
+        setScrolled(true);
+      } else if (scrolledRef.current && offset < 60) {
+        scrolledRef.current = false;
+        setScrolled(false);
       }
     };
+
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [scrolled]);
+  }, []);
 
   const navLinks = [
     { label: "Home", path: "/" },
@@ -48,8 +52,8 @@ function Navbar() {
 
   return (
     <>
-      {/* 1. GHOST WRAPPER: Occupies space so the page doesn't jump */}
-      <div className={`w-full transition-all duration-500 ${scrolled ? 'h-0' : 'h-[100px] md:h-[130px]'}`} />
+      {/* 1. GHOST WRAPPER: Keeps a stable page offset while the fixed header transforms */}
+      <div className="w-full h-[130px] md:h-[130px]" />
 
       <header className="w-full fixed top-0 left-0 z-50 font-serif">
         

@@ -52,140 +52,103 @@ const SITE_DESCRIPTION =
    DOCTORS (use exactly the list provided by you)
    Ensure images are accessible at the indicated paths.
    ======================================================= */
-const DOCTORS = [
+const DOCTORS_DATABASE = [
   {
-    name: "Dr. Prashant Sharma",
-    speciality: "Internal Medicine",
-    img: "/images/doctors/rajeev-gupta.jpg",
-  },
-  {
-    name: "Dr. Satya Prakash",
-    speciality: "Obstetric and Gynaecology",
-    img: "/images/doctors/archana-gupta.jpg",
-  },
-  {
-    name: "Dr. Sethi Gupta",
-    speciality: "Endocrinologist",
-    img: "/images/doctors/sethi-gupta.jpg",
-  },
-  {
-    name: "Dr. Saloni Seth",
-    speciality: "Psychiatrist",
-    img: "/images/doctors/saloni-seth.jpg",
-  },
-  {
-    name: "Dr. Sachin Kumar",
-    speciality: "Dermatologist",
-    img: "/images/doctors/sachin-kumar.jpg",
-  },
-  {
-    name: "Dr. Anvitun Aggarwal",
-    speciality: "Infectious Diseases",
-    img: "/images/doctors/anvitun-aggarwal.jpg",
-  },
-  {
-    name: "Dr. Rajnish Kashyap",
-    speciality: "Laparoscopic / General Surgeon",
-    img: "/images/doctors/rajnish-kashyap.jpg",
-  },
-  {
-    name: "Dr. Rajan Sareen",
-    speciality: "Pediatrician",
-    img: "/images/doctors/rajan-sareen.jpg",
-  },
-  {
-    name: "Dr. Abhishek Aggarwal",
-    speciality: "Neurologist",
-    img: "/images/doctors/abhishek-aggarwal.jpg",
-  },
-  {
+    id: 1,
     name: "Dr. Rahul Ramteke",
-    speciality: "Cardiologist",
-    img: "/images/doctors/rahul-ramteke.jpg",
+    specialty: "Cardiology",
+    degree: "MBBS, MD, DM (Cardiology)",
+    experience: "15+ Years",
+    rating: 4.9,
+    availability: "9:00 AM - 5:00 PM",
+    img: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=800",
+    bio: "Senior Consultant in Interventional Cardiology with expertise in complex coronary interventions.",
+    phone: "+918445741993",
+  },
+  {
+    id: 2,
+    name: "Dr. Anjali Singh",
+    specialty: "Maternity",
+    degree: "MBBS, MS (Obstetrics & Gynaecology)",
+    experience: "12+ Years",
+    rating: 4.8,
+    availability: "10:00 AM - 4:00 PM",
+    img: "https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=800",
+    bio: "Specializing in high-risk pregnancies, infertility treatments, and laparoscopic surgeries.",
+    phone: "+918445741993",
+  },
+  {
+    id: 3,
+    name: "Dr. Vikram Sethi",
+    specialty: "Orthopaedics",
+    degree: "MBBS, MS (Ortho), Fellow in Joint Replacement",
+    experience: "18+ Years",
+    rating: 5.0,
+    availability: "11:00 AM - 6:00 PM",
+    img: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=800",
+    bio: "Dedicated to joint reconstruction and sports medicine, performing over 500+ knee replacements annually.",
+    phone: "+918445741993",
+  },
+  {
+    id: 4,
+    name: "Dr. Sameer Khan",
+    specialty: "Neurology",
+    degree: "MD, DM (Neurology)",
+    experience: "10+ Years",
+    rating: 4.7,
+    availability: "9:30 AM - 3:30 PM",
+    img: "https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=800",
+    bio: "Focuses on stroke management, epilepsy, and neuro-muscular disorders.",
+    phone: "+918445741993",
+  },
+  {
+    id: 5,
+    name: "Dr. Priya Sharma",
+    specialty: "Pediatrics",
+    degree: "MBBS, DCH, MD (Pediatrics)",
+    experience: "9+ Years",
+    rating: 4.9,
+    availability: "10:00 AM - 7:00 PM",
+    img: "https://images.unsplash.com/photo-1559839734-2b71f1536783?auto=format&fit=crop&w=800",
+    bio: "Expert in newborn care and childhood developmental disorders.",
+    phone: "+918445741993",
+  },
+  {
+    id: 6,
+    name: "Dr. Amit Gupta",
+    specialty: "Emergency",
+    degree: "MBBS, MEM (Emergency Medicine)",
+    experience: "11+ Years",
+    rating: 4.8,
+    availability: "24/7 (On Call)",
+    img: "https://images.unsplash.com/photo-1622902046580-2b47f47f0871?auto=format&fit=crop&w=800",
+    bio: "Head of Trauma and Emergency, specializing in critical care and life support.",
+    phone: "+918445741993",
+  },
+  {
+    id: 7,
+    name: "Dr. Neha Verma",
+    specialty: "General Medicine",
+    degree: "MBBS, MD (General Medicine)",
+    experience: "14+ Years",
+    rating: 4.6,
+    availability: "8:00 AM - 2:00 PM",
+    img: "https://images.unsplash.com/photo-1614608682850-e0d6ed316d47?auto=format&fit=crop&w=800",
+    bio: "Comprehensive care for chronic lifestyle diseases like Diabetes and Hypertension.",
+    phone: "+918445741993",
   },
 ];
 
-/* =======================================================
-   TOPICAL CONTENT (shortened & structured from your topical map)
-   We'll populate services, features, reviews, FAQs, etc.
-   ======================================================= */
-const TOPICAL_CONTENT = {
-  general: [
-    {
-      title: "Why Maa Tulya Hospital is Baghpat's #1 Healthcare Choice in 2024",
-      keyword: "best multi-specialty hospital in Baghpat",
-      blurb:
-        "Patient-first services, modern diagnostics, and a wide network of specialists make Maa Tulya Hospital a trusted choice.",
-    },
-    {
-      title: "5 Reasons Patients Choose Maa Tulya Over Other Baghpat Hospitals",
-      keyword: "why choose Maa Tulya hospital Baghpat",
-      blurb:
-        "Timely emergency response, transparent pricing, and a strong multidisciplinary team are among the top reasons patients rely on Maa Tulya.",
-    },
-  ],
-  services: [
-    {
-      title: "Cardiology — Advanced Heart Care",
-      keyword: "cardiology treatment Maa Tulya hospital",
-      blurb:
-        "ECG, Echo, and expert cardiology consultations available with rapid diagnostic support for chest pain and emergency cardiac care.",
-    },
-    {
-      title: "24/7 Emergency Services",
-      keyword: "24 hour emergency services Baghpat",
-      blurb:
-        "Round-the-clock triage, stabilization, and transfer protocols together with ambulance coordination ensure timely care.",
-    },
-    {
-      title: "Orthopaedics — Joint & Trauma Care",
-      keyword: "affordable orthopedic surgery Baghpat",
-      blurb:
-        "Joint replacement, fracture management, and arthroscopic procedures with comprehensive rehabilitation support.",
-    },
-    {
-      title: "Maternity & Neonatal Care",
-      keyword: "maternity packages Baghpat hospital",
-      blurb:
-        "Antenatal clinics, skilled delivery suites, and neonatal support with lactation counseling and postpartum care.",
-    },
-    {
-      title: "Paediatrics & Child Health",
-      keyword: "child specialist doctor Baghpat",
-      blurb:
-        "Routine immunizations, growth monitoring, and pediatric emergency care from experienced clinicians.",
-    },
-    {
-      title: "Diagnostics & Laboratory",
-      keyword: "diagnostic center Baghpat",
-      blurb:
-        "On-site lab and imaging services for quick, accurate reports that clinicians depend on for fast decisions.",
-    },
-  ],
-  cost: [
-    {
-      title: "Affordable Health Checkups",
-      keyword: "comprehensive health checkup Baghpat",
-      blurb:
-        "Special packages designed for early detection with transparent pricing and quick turnaround.",
-    },
-    {
-      title: "Cashless Treatment Options",
-      keyword: "cashless treatment facility Baghpat",
-      blurb:
-        "We facilitate cashless admissions with multiple insurers; billing support is available to confirm coverage.",
-    },
-  ],
-  reviews: [
-    {
-      title: "Real Patient Reviews",
-      keyword: "patient reviews Maa Tulya hospital",
-      blurb:
-        "Genuine patient testimonials highlight the hospital’s clinical effectiveness and friendly service.",
-    },
-  ],
-};
-
+const SPECIALTIES = [
+  "All",
+  "Cardiology",
+  "Maternity",
+  "Orthopaedics",
+  "Neurology",
+  "Pediatrics",
+  "Emergency",
+  "General Medicine",
+];
 /* =======================================================
    Hero images (light and dark variants). Uses Unsplash placeholders.
    Replace with local assets if needed.
@@ -299,6 +262,11 @@ export default function Home() {
   const [index, setIndex] = useState(0);
   const [autoplay, setAutoplay] = useState(true);
   const autoplayRef = useRef(null);
+
+  // doctor filtering state
+  const [selectedDoctor, setSelectedDoctor] = useState(null);
+  const [selectedSpecialty, setSelectedSpecialty] = useState("All");
+  const filteredDoctors = selectedSpecialty === "All" ? DOCTORS_DATABASE : DOCTORS_DATABASE.filter(doc => doc.specialty === selectedSpecialty);
 
   // phone & email used across CTAs (clickable)
   const PHONE = "+918588831732";
@@ -541,67 +509,58 @@ export default function Home() {
         </div>
       </section>
 
-      {/* DOCTORS SECTION */}
-<section id="doctors" aria-labelledby="doctors-heading" className="py-24 bg-white relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.header 
-            initial={{ opacity: 0, x: -20 }} 
-            whileInView={{ opacity: 1, x: 0 }} 
-            transition={{ duration: 0.8 }} 
-            viewport={{ once: true }}
-            className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6"
-          >
-            <div className="max-w-2xl">
-              <h2 id="doctors-heading" className="text-3xl md:text-4xl font-black text-[#111827]">
-                Meet Our <span className="text-[#3B3486]">Specialists</span>
-              </h2>
-              <p className="mt-4 text-gray-600 text-lg">Experienced clinicians committed to your health.</p>
-            </div>
-            <Link to="/find_a_doctor" className="group flex items-center gap-2 text-[#3B3486] font-bold border-b-2 border-[#3B3486]/10 hover:border-[#3B3486] transition-all pb-1 w-max">
-              View Full Directory <span className="group-hover:translate-x-1 transition-transform">→</span>
-            </Link>
-          </motion.header>
-
-          <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
-            {DOCTORS.map((doc, i) => (
-              <motion.article
-                key={i}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: i * 0.05 }}
-                viewport={{ once: true }}
-                className="group"
-              >
-                <div className="relative bg-[#F8FAFC] rounded-[2.5rem] p-4 transition-all duration-500 group-hover:bg-white group-hover:shadow-[0_30px_60px_-15px_rgba(59,52,134,0.15)]">
-                  <div className="relative aspect-[4/5] rounded-[2rem] overflow-hidden mb-6 shadow-sm">
-                    <img src={doc.img} alt={doc.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#3B3486]/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
-                      <Link to={`/profile/${slugify(doc.name)}`} className="w-full py-3 bg-white text-[#3B3486] text-center rounded-xl font-bold shadow-xl transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                        View Profile
-                      </Link>
+      {/* DOCTOR CARDS */}
+                  <section className="px-6 mb-40">
+                    <div className="max-w-7xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-12">
+                      {filteredDoctors.map((doc) => (
+                        <motion.div
+                          layout
+                          key={doc.id}
+                          className="bg-white rounded-[3rem] overflow-hidden border border-slate-100 shadow-sm hover:shadow-2xl transition-all duration-500 group flex flex-col"
+                        >
+                          <div
+                            className="h-96 overflow-hidden relative cursor-pointer"
+                            onClick={() => setSelectedDoctor(doc)}
+                          >
+                            <img
+                              src={doc.img}
+                              alt={doc.name}
+                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                            />
+                            <div className="absolute top-6 left-6 bg-white/90 backdrop-blur-md px-5 py-2 rounded-full text-[9px] font-black text-[#3B3486] uppercase tracking-widest">
+                              {doc.specialty}
+                            </div>
+                          </div>
+      
+                          <div className="p-10 flex flex-col flex-grow">
+                            <h3 className="text-2xl font-black text-[#3B3486] mb-2">
+                              {doc.name}
+                            </h3>
+                            <p className="text-slate-400 text-xs font-bold mb-8">
+                              {doc.degree}
+                            </p>
+      
+                            <div className="mt-auto space-y-4">
+                              <a
+                                href={`tel:${doc.phone}`}
+                                className="flex items-center justify-center gap-3 w-full bg-slate-50 text-[#3B3486] py-4 rounded-xl font-black uppercase text-[10px] tracking-widest hover:bg-[#3B3486] hover:text-white transition-all shadow-sm"
+                              >
+                                <FaPhoneAlt size={12} /> Contact for Appointment
+                              </a>
+                              <Link
+                                to="/profile/Render_Profile"
+                                state={{ doc }}
+                                className="flex items-center justify-center gap-3 w-full bg-slate-50 text-[#3B3486] py-4 rounded-xl font-black uppercase text-[10px] tracking-widest hover:bg-[#3B3486] hover:text-white transition-all shadow-sm"
+                              >
+                                <FaUserMd size={12} />
+                                View Clinical Profile
+                              </Link>
+                            </div>
+                          </div>
+                        </motion.div>
+                      ))}
                     </div>
-                  </div>
-                  <div className="px-2 pb-2">
-                    <h3 className="text-xl font-bold text-[#111827] mb-1">{doc.name}</h3>
-                    <p className="text-[#3B3486] font-medium text-sm flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#3B3486]/30" />
-                      {doc.speciality}
-                    </p>
-                    <div className="mt-5 flex items-center justify-between">
-                      <a href={`tel:${PHONE}`} className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-green-600">
-                        <span className="p-1.5 bg-green-50 rounded-lg"><FaPhoneAlt size={10} /></span> Consult
-                      </a>
-                      <div className="flex gap-1">
-                        {[1, 2, 3].map((dot) => <div key={dot} className="w-1 h-1 rounded-full bg-gray-200" />)}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </motion.article>
-            ))}
-          </div>
-        </div>
-      </section>
+                  </section>
       {/* FACILITIES */}
       <section id="facilities" className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
