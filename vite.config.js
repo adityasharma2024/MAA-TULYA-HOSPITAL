@@ -9,9 +9,8 @@ export default defineConfig({
   plugins: [react(), tailwindcss()],
   cacheDir: path.join(os.tmpdir(), "vite-cache-hospital"),
   build: {
-    // 'source-map' generates a separate .map file instead of using eval()
-    // This is much safer and avoids the CSP "unsafe-eval" error
-    sourcemap: "inline",
+    // disable production sourcemaps for smaller bundlemake the website follow css and faster site load
+    sourcemap: false,
   },
   server: {
     // Ensures the development server doesn't use dangerous evaluation logic
