@@ -22,7 +22,7 @@ import {
 /* =========================
    CONSTANTS & DATA
    ========================= */
-const PHONE = "+919045818999";
+const PHONE = "+91 9045818999";
 const EMAIL = "admin.maatulyahospital@gmail.com";
 
 const FOOTER_LINKS = [
@@ -60,7 +60,7 @@ const TESTIMONIALS = [
  * Theme: Light / Minimalist / Medical Professional
  */
 function Footer() {
-  const PHONE = "+919045818999";
+  const PHONE = "+91 9045818999";
   const EMAIL = "admin.maatulyahospital@gmail.com";
   const ADDRESS = "Baghpat-Baraut Road, near Bandhan Bank, Baghpat, 250609";
 
@@ -494,7 +494,7 @@ export default function AboutUs() {
           {/* Contact Details Column */}
           <div className="lg:col-span-2 space-y-4">
             {[
-              { icon: <FaMapMarkerAlt />, title: "Location", detail: "Plot No. 12, Sector 9, Baghpat, UP", color: "bg-blue-50 text-blue-600" },
+              { icon: <FaMapMarkerAlt />, title: "Location", detail: "Baghpat-Baraut Road, near Bandhan Bank, Baghpat, 250609", color: "bg-blue-50 text-blue-600" },
               { icon: <FaPhoneAlt />, title: "Emergency Call", detail: PHONE, color: "bg-green-50 text-green-600" },
               { icon: <FaEnvelope />, title: "Official Email", detail: EMAIL, color: "bg-purple-50 text-purple-600" }
             ].map((item, idx) => (

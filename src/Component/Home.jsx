@@ -30,6 +30,7 @@ import {
   FaBaby, 
   FaBone,
   FaPlus,
+  FaPills,
 } from "react-icons/fa";
 
 /* =======================================================
@@ -56,87 +57,76 @@ const SITE_DESCRIPTION =
 const DOCTORS_DATABASE = [
   {
     id: 1,
-    name: "Dr. Rahul Ramteke",
-    specialty: "Cardiology",
-    degree: "MBBS, MD, DM (Cardiology)",
+    name: "Dr. Prashant Sharma",
+    specialty: "Internal Medicine",
+    extra: "MD MAA TULYA HOSPITAL BAGHPAT",
+    degree: "BAMS, CCYP (BHU)",
     experience: "15+ Years",
     rating: 4.9,
     availability: "9:00 AM - 5:00 PM",
-    img: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=800",
-    bio: "Senior Consultant in Interventional Cardiology with expertise in complex coronary interventions.",
-    phone: "+919045818999",
+    img: "",
+    bio: "Specializes in chronic disease management, preventive care, and holistic treatment approaches./n He has a strong background in patient education and lifestyle modification.",
+    phone: "+91 9045818999",
   },
   {
     id: 2,
-    name: "Dr. Anjali Singh",
+    name: "Dr. Kashish Puri",
     specialty: "Maternity",
     degree: "MBBS, MS (Obstetrics & Gynaecology)",
-    experience: "12+ Years",
-    rating: 4.8,
-    availability: "10:00 AM - 4:00 PM",
-    img: "https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=800",
-    bio: "Specializing in high-risk pregnancies, infertility treatments, and laparoscopic surgeries.",
-    phone: "+919045818999",
+    experience: "5+ Years",
+    rating: 4.9,
+    availability: "4:00 PM - 6:00 PM",
+    img: "/src/Component/assets/Dr_Kashish_Puri.jpeg",
+    bio: "Specializing in high-risk pregnancies, infertility treatments, and laparoscopic surgeries. Committed to patient-centered care and maternal health education. Actively involved in community outreach programs for women's health awareness. In addition to clinical practice, Dr. Puri contributes to research in obstetrics and gynaecology, focusing on improving maternal and neonatal outcomes.",
+    phone: "+91 9045818999",
   },
   {
     id: 3,
-    name: "Dr. Vikram Sethi",
+    name: "Dr. Akhilesh Kumar",
     specialty: "Orthopaedics",
-    degree: "MBBS, MS (Ortho), Fellow in Joint Replacement",
-    experience: "18+ Years",
+    degree: "MBBS, MS (Ortho), FIJR, FIAS",
+    experience: "5+ Years",
     rating: 5.0,
-    availability: "11:00 AM - 6:00 PM",
-    img: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=800",
-    bio: "Dedicated to joint reconstruction and sports medicine, performing over 500+ knee replacements annually.",
-    phone: "+919045818999",
+    availability: "2:30 PM - 3:30 PM",
+    img: "/src/Component/assets/Dr_Akhilesh_Kumar.jpeg",
+    bio: "Dedicated to joint reconstruction and sports medicine, 5+ years of experience. Interested in minimally invasive techniques and patient rehabilitation. Passionate about educating patients on injury prevention and long-term joint health.",
+    phone: "+91 9045818999",
   },
   {
     id: 4,
-    name: "Dr. Sameer Khan",
-    specialty: "Neurology",
-    degree: "MD, DM (Neurology)",
-    experience: "10+ Years",
+    name: "Dr. Alok Aggarwal",
+    specialty: "General Surgery",
+    degree: "MD, MS, FMAS",
+    experience: "7+ Years",
     rating: 4.7,
-    availability: "9:30 AM - 3:30 PM",
-    img: "https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=800",
-    bio: "Focuses on stroke management, epilepsy, and neuro-muscular disorders.",
-    phone: "+919045818999",
+    availability: "12:00 PM - 1:00 PM",
+    img: " ",
+    bio: "Specializes in laparoscopic and minimally invasive surgeries, with a focus on patient safety and post-operative care. Experienced in managing complex surgical cases and committed to continuous learning and research in surgical techniques.",
+    phone: "+91 9045818999",
   },
   {
     id: 5,
-    name: "Dr. Priya Sharma",
+    name: "Dr. Rahul Kumar Bidhuri",
     specialty: "Pediatrics",
-    degree: "MBBS, DCH, MD (Pediatrics)",
-    experience: "9+ Years",
+    degree: "MBBS, MD (Pediatrics)",
+    experience: "7+ Years",
     rating: 4.9,
-    availability: "10:00 AM - 7:00 PM",
-    img: "https://images.unsplash.com/photo-1559839734-2b71f1536783?auto=format&fit=crop&w=800",
-    bio: "Expert in newborn care and childhood developmental disorders.",
-    phone: "+919045818999",
+    availability: "9:00 AM - 7:00 PM",
+    img: " ",
+    bio: "Specializes in child health, immunizations, and growth monitoring. Committed to providing compassionate care and educating parents on child development and nutrition. Actively involved in community health programs and pediatric research. In addition to clinical practice, Dr. Bidhuri is passionate about advocating for child health policies and improving access to pediatric care in underserved areas.",
+    phone: "+91 9045818999",
   },
   {
     id: 6,
-    name: "Dr. Amit Gupta",
-    specialty: "Emergency",
-    degree: "MBBS, MEM (Emergency Medicine)",
-    experience: "11+ Years",
+    name: "Dr. Rahul Chauhan",
+    specialty: "General Surgery",
+    degree: "BAMS (LKO)",
+    experience: "7+ Years",
     rating: 4.8,
     availability: "24/7 (On Call)",
-    img: "https://images.unsplash.com/photo-1622902046580-2b47f47f0871?auto=format&fit=crop&w=800",
-    bio: "Head of Trauma and Emergency, specializing in critical care and life support.",
-    phone: "+919045818999",
-  },
-  {
-    id: 7,
-    name: "Dr. Neha Verma",
-    specialty: "General Medicine",
-    degree: "MBBS, MD (General Medicine)",
-    experience: "14+ Years",
-    rating: 4.6,
-    availability: "8:00 AM - 2:00 PM",
-    img: "https://images.unsplash.com/photo-1614608682850-e0d6ed316d47?auto=format&fit=crop&w=800",
-    bio: "Comprehensive care for chronic lifestyle diseases like Diabetes and Hypertension.",
-    phone: "+919045818999",
+    img: " ",
+    bio: "Piles Specialist with expertise in minimally invasive procedures and patient-centered care. Experienced in managing complex surgical cases and committed to continuous learning and research in surgical techniques. Passionate about educating patients on post-operative care and lifestyle modifications for long-term health.",
+    phone: "+91 9045818999",
   },
 ];
 
@@ -157,7 +147,7 @@ const SPECIALTIES = [
 const HERO_IMAGES_LIGHT = [
   {
     id: "hl1",
-    src: "assets/pic1.jpeg",
+    src: "/assets/pic1.jpeg",
     alt: "Maa Tulya Hospital exterior during day",
     heading: "Trusted multi-speciality care in Baghpat",
     sub: "24/7 emergency • Modern diagnostics • Expert clinicians",
@@ -175,24 +165,45 @@ const HERO_IMAGES_DARK = [
   
   {
     id: "hd1",
-    src: "./src/component/assets/pic2.jpeg",
+    src: "/src/Component/assets/pic2.jpeg",
     alt: "Happy family with newborn and hospital staff",
     heading: "Compassionate care and guidance",
     sub: "Empowering families with personalized support from admission to discharge",
   },
   {
     id: "hd2",
-    src: "./src/component/assets/pic1.jpeg",
+    src: "/src/Component/assets/pic1.jpeg",
     alt: "Medical team celebrating a successful delivery",
     heading: "Patient-friendly experience",
     sub: "Streamlined admissions and helpful guidance at every step",
   },
   {
     id: "hd3",
-    src: "./public/front_pic.jpg",
+    src: "/public/front_pic.jpg",
     alt: "Emergency team working at night",
     heading: "24/7 Emergency & Trauma Care",
     sub: "Rapid triage, stabilization, and ambulance coordination",
+  },
+  {
+    id: "hd4",
+    src: "/src/Component/assets/pic3.jpeg",
+    alt: "Family with newborn and hospital staff",
+    heading: "Happy families, healthy babies",
+    sub: " Celebrating successful deliveries and positive patient experiences",
+  },
+  {
+    id: "hd5",
+    src: "/src/Component/assets/pic4.jpeg",
+    alt: "Happy family with newborn and hospital staff",
+    heading: "Compassionate care and guidance",
+    sub: "Empowering families with personalized support from admission to discharge",
+  },
+  {
+    id: "hd6",
+    src: "/src/Component/assets/pic5.jpeg",
+    alt: "Orthopaedic doctor explaining hospital facilities",
+    heading: " Patient-friendly experience",
+    sub: "Streamlined admissions and helpful guidance at every step",
   },
 ];
 
@@ -219,12 +230,42 @@ const JSON_LD = {
   openingHours: "Mo,Tu,We,Th,Fr,Sa,Su 00:00-23:59",
 };
 const SERVICES_DATA = [
-  { title: "Emergency Care", blurb: "24/7 critical care with advanced life support and rapid response teams.", icon: <FaAmbulance />, color: "bg-red-50 text-red-600" },
-  { title: "Cardiology", blurb: "Comprehensive heart health including ECG, TMT, and specialist consultations.", icon: <FaStethoscope />, color: "bg-blue-50 text-blue-600" },
-  { title: "Orthopaedics", blurb: "Expert bone and joint care, from fracture management to physiotherapy.", icon: <FaBone />, color: "bg-amber-50 text-amber-600" },
-  { title: "Maternity", blurb: "Compassionate mother and child care with modern labor suites.", icon: <FaBaby />, color: "bg-pink-50 text-pink-600" },
-  { title: "Paediatrics", blurb: "Dedicated healthcare for infants and children in a friendly environment.", icon: <FaSyringe />, color: "bg-green-50 text-green-600" },
-  { title: "Diagnostics", blurb: "Fully automated lab and digital X-ray for precise medical reporting.", icon: <FaMicroscope />, color: "bg-purple-50 text-purple-600" },
+  {
+    title: "Emergency Care",
+    blurb: "24/7 critical care with advanced life support and rapid response teams.",
+    icon: <FaAmbulance />,
+    color: "bg-red-50 text-red-600",
+  },
+  {
+    title: "Maternity",
+    blurb: "Compassionate mother and child care with modern labor suites and NICU support.",
+    icon: <FaBaby />,
+    color: "bg-pink-50 text-pink-600",
+  },
+  {
+    title: "Paediatrics",
+    blurb: "Dedicated healthcare for infants and children with friendly paediatric specialists.",
+    icon: <FaSyringe />,
+    color: "bg-green-50 text-green-600",
+  },
+  {
+    title: "Orthopaedics",
+    blurb: "Expert bone and joint care from fracture management to joint replacement.",
+    icon: <FaBone />,
+    color: "bg-amber-50 text-amber-600",
+  },
+  {
+    title: "Diagnostics",
+    blurb: "Fully automated lab and digital imaging for precise medical reporting.",
+    icon: <FaMicroscope />,
+    color: "bg-purple-50 text-purple-600",
+  },
+  {
+    title: "Pharmacy",
+    blurb: "In-house pharmacy with essential medicines and delivery options.",
+    icon: <FaPills />,
+    color: "bg-indigo-50 text-indigo-600",
+  },
 ];
 
 const FOOTER_LINKS = [
@@ -286,7 +327,7 @@ export default function Home() {
   const filteredDoctors = selectedSpecialty === "All" ? DOCTORS_DATABASE : DOCTORS_DATABASE.filter(doc => doc.specialty === selectedSpecialty);
 
   // phone & email used across CTAs (clickable)
-  const PHONE = "+919045818999";
+  const PHONE = "+91 9045818999";
   const EMAIL = "admin.maatulyahospital@gmail.com";
 
   // autoplay behavior
@@ -335,9 +376,12 @@ export default function Home() {
               transition={{ duration: 0.9 }}
               className="lg:col-span-6"
             >
-              <div className="inline-flex items-center gap-3 bg-[rgba(59,52,134,0.06)] px-3 py-1 rounded-full w-max">
-                <span className="w-2 h-2 rounded-full bg-green-600 inline-block" />
-                <span className="text-sm text-[#3B3486] font-semibold">Serving Baghpat & neighbouring districts</span>
+              <div className="inline-flex items-center gap-3 bg-gradient-to-r from-[#3B3486]/10 via-[#16A34A]/10 to-[#3B3486]/10 px-4 py-2 rounded-full shadow-sm border border-[#3B3486]/10">
+                <span className="relative flex h-3 w-3">
+                  <span className="absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-50 animate-ping" />
+                  <span className="relative inline-flex h-3 w-3 rounded-full bg-green-600" />
+                </span>
+                <span className="text-sm font-semibold text-[#3B3486]">Serving Baghpat & neighbouring districts</span>
               </div>
 
               <h1 className="mt-6 text-3xl md:text-4xl font-extrabold text-[#111827] leading-tight">
@@ -357,7 +401,7 @@ export default function Home() {
                   <FaEnvelope /> Email Us
                 </a>
 
-                <Link to="#services" className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#3B3486] text-white hover:opacity-95 transition">
+                <Link to="/speciality" className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#3B3486] text-white hover:opacity-95 transition">
                   Explore Services
                 </Link>
               </div>
@@ -438,16 +482,6 @@ export default function Home() {
                   ))}
                 </div>
 
-                {/* autoplay toggle */}
-                <div className="absolute right-3 top-3 bg-white/90 rounded-full p-1">
-                  <button
-                    onClick={() => setAutoplay((s) => !s)}
-                    className="text-sm px-2 py-1 rounded-full"
-                    aria-label={autoplay ? "Pause autoplay" : "Play autoplay"}
-                  >
-                    {autoplay ? "Pause" : "Play"}
-                  </button>
-                </div>
               </div>
             </motion.div>
           </div>
@@ -553,6 +587,9 @@ export default function Home() {
                             <h3 className="text-2xl font-black text-[#3B3486] mb-2">
                               {doc.name}
                             </h3>
+                            <p className="text-slate-400 text-xs font-bold mb-2">
+                              {doc.extra}
+                            </p>
                             <p className="text-slate-400 text-xs font-bold mb-8">
                               {doc.degree}
                             </p>
@@ -724,7 +761,7 @@ export default function Home() {
                                     </Link>
 
                                     <a
-                                          href="https://www.google.com/maps"
+                                          href="https://www.google.com/maps/place/MAA+TULYA+HOSPITAL/@28.9482395,77.2159809,17z"
                                           target="_blank"
                                           rel="noreferrer"
                                           className="rounded-full border px-5 py-3 font-semibold text-slate-700 hover:bg-slate-100 transition flex items-center gap-2"
@@ -765,7 +802,7 @@ export default function Home() {
                   <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-soft">
                         <iframe
                               title="Maa Tulya Hospital location"
-                              src="https://www.google.com/maps?q=Baghpat%20Uttar%20Pradesh&output=embed"
+                              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3491.3197391006834!2d77.21598091109145!3d28.94823947539167!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390c53004bcb0e3f%3A0x22218d5fbeadc4b3!2sMAA%20TULYA%20HOSPITAL!5e0!3m2!1sen!2sin!4v1784474578803!5m2!1sen!2sin"
                               className="h-[420px] w-full border-0"
                               loading="lazy"
                         />
@@ -792,7 +829,7 @@ export default function Home() {
  * Theme: Light / Minimalist / Medical Professional
  */
 function Footer() {
-  const PHONE = "+919045818999";
+  const PHONE = "+91 9045818999";
   const EMAIL = "admin.maatulyahospital@gmail.com";
   const ADDRESS = "Baghpat-Baraut Road, near Bandhan Bank, Baghpat, 250609";
 

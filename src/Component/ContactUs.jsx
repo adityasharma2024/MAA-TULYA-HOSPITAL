@@ -449,10 +449,10 @@ export default function ContactUs() {
                     Emergency Desk
                   </h4>
                   <a 
-                    href={`tel:+919045818999`} 
+                    href={`tel:+91 9045818999`} 
                     className="text-2xl font-black text-[#3B3486] hover:text-green-600 transition-colors block mb-2"
                   >
-                    +919045818999
+                    +91 9045818999
                   </a>
                   <p className="text-slate-400 text-[10px] font-bold mb-8">Baghpat-Baraut Road, near Bandhan Bank, Baghpat, 250609</p>
                   <a 

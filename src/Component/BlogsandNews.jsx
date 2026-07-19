@@ -116,7 +116,7 @@ const CATEGORIES = ["All", "General", "Cardiology", "Maternity", "Emergency", "O
  * Theme: Light / Minimalist / Medical Professional
  */
 function Footer() {
-  const PHONE = "+919045818999";
+  const PHONE = "+91 9045818999";
   const EMAIL = "admin.maatulyahospital@gmail.com";
   const ADDRESS = "Baghpat-Baraut Road, near Bandhan Bank, Baghpat, 250609";
 

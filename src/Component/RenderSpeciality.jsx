@@ -220,7 +220,7 @@ const SPECIALITY_DETAILS = {
 };
 
 function Footer() {
-  const PHONE = "+919045818999";
+  const PHONE = "+91 9045818999";
   const ADDRESS = "Baghpat-Baraut Road, near Bandhan Bank, Baghpat, 250609";
 
   return (
@@ -407,7 +407,7 @@ export default function RenderSpeciality() {
 
             <div className="flex flex-col gap-4">
               <a
-                href={`tel:${"+919045818999"}`}
+                href={`tel:${"+91 9045818999"}`}
                 className="flex items-center justify-center gap-4 bg-[#3B3486] text-white py-5 rounded-2xl font-black uppercase text-[11px] tracking-widest shadow-xl shadow-purple-900/20 hover:bg-green-600 transition-all text-center"
               >
                 <FaPhoneAlt className="animate-pulse" />

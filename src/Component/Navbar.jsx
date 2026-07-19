@@ -3,12 +3,12 @@ import { Link, useNavigate } from "react-router-dom";
 import { IoIosArrowDown, IoMdCall, IoMdMail } from "react-icons/io";
 import { FaFacebookF, FaInstagram, FaWhatsapp, FaYoutube } from "react-icons/fa";
 
-const SocialIcon = memo(({ Icon, href, label }) => (
+const SocialIcon = memo(({ Icon, href, label, colorClass = "text-green-700", hoverBgClass = "hover:bg-green-100" }) => (
   <a
     href={href}
     target="_blank"
     rel="noopener noreferrer"
-    className="p-1.5 bg-white hover:bg-green-100 border border-green-200 rounded-full transition-all transform hover:scale-110 shadow-sm text-green-700"
+    className={`p-1.5 bg-white ${hoverBgClass} border border-gray-200 rounded-full transition-all transform hover:scale-110 shadow-sm ${colorClass}`}
     aria-label={label}
   >
     <Icon size={14} />
@@ -45,8 +45,8 @@ function Navbar() {
     { label: "About Us", path: "/about" },
     { label: "Specialities", path: "/speciality"},
     { label: "Find a Doctor", path: "/find_a_doctor" },
-    { label: "Contact Us", path: "/contactUs" },
     { label: "Blogs and News", path: "/Blogs_and_News" },
+    { label: "Contact Us", path: "/contactUs" },
   ];
 
   return (
@@ -68,9 +68,9 @@ function Navbar() {
               </a>
             </div>
             <div className="flex items-center gap-3">
-               <SocialIcon Icon={FaFacebookF} href="https://www.facebook.com/people/Maa-Tulya-Hospital/pfbid08nd9X8hRUPa6YYWv6VgNWHodyCFR5YnGdSZK3iCZnxvRfbtzeA5aQXLN49D3K5wcl/" label="Facebook" />
-               <SocialIcon Icon={FaYoutube} href="https://www.youtube.com/@MaaTulyaHospital" label="YouTube" />
-               <SocialIcon Icon={FaInstagram} href="https://www.instagram.com/maa_tulya_hospital?igsh=eXVnZG1hYmFpYncx" label="Instagram" />
+               <SocialIcon Icon={FaFacebookF} href="https://www.facebook.com/people/Maa-Tulya-Hospital/pfbid08nd9X8hRUPa6YYWv6VgNWHodyCFR5YnGdSZK3iCZnxvRfbtzeA5aQXLN49D3K5wcl/" label="Facebook" colorClass="text-blue-600" hoverBgClass="hover:bg-blue-100" />
+               <SocialIcon Icon={FaYoutube} href="https://www.youtube.com/@MaaTulyaHospital" label="YouTube" colorClass="text-red-600" hoverBgClass="hover:bg-red-100" />
+               <SocialIcon Icon={FaInstagram} href="https://www.instagram.com/maa_tulya_hospital?igsh=eXVnZG1hYmFpYncx" label="Instagram" colorClass="text-pink-500" hoverBgClass="hover:bg-pink-100" />
             </div>
           </div>
         </div>
@@ -124,7 +124,7 @@ function Navbar() {
                 ))}
 
                 <a href={`tel:${EMERGENCY_NUMBER}`} className="group flex items-center px-6 py-2.5 rounded-full text-white font-bold transition-all duration-500 hover:scale-105 shadow-lg bg-gradient-to-r from-red-600 to-orange-500">
-                  <img src="./public/emergency.webp" alt="Ambulance" className="h-6 w-6 mr-3 group-hover:animate-bounce" />
+                  <img src="/public/emergency.webp" alt="Ambulance" className="h-6 w-6 mr-3 group-hover:animate-bounce" />
                   <div className="flex flex-col leading-none">
                     <span className="text-[9px] opacity-90 uppercase font-black">Emergency</span>
                     <span className="text-base font-sans tracking-tight">{EMERGENCY_NUMBER}</span>
@@ -203,8 +203,9 @@ function Navbar() {
               </a>
               <div className="flex justify-between items-center px-4">
                  <div className="flex gap-4">
-                    <FaWhatsapp className="text-2xl text-green-500" />
-                    <FaInstagram className="text-2xl text-pink-500" />
+                    <SocialIcon Icon={FaFacebookF} href="https://www.facebook.com/people/Maa-Tulya-Hospital/pfbid08nd9X8hRUPa6YYWv6VgNWHodyCFR5YnGdSZK3iCZnxvRfbtzeA5aQXLN49D3K5wcl/" label="Facebook" colorClass="text-blue-600" hoverBgClass="hover:bg-blue-100" />
+                    <SocialIcon Icon={FaYoutube} href="https://www.youtube.com/@MaaTulyaHospital" label="YouTube" colorClass="text-red-600" hoverBgClass="hover:bg-red-100" />
+                    <SocialIcon Icon={FaInstagram} href="https://www.instagram.com/maa_tulya_hospital?igsh=eXVnZG1hYmFpYncx" label="Instagram" colorClass="text-pink-500" hoverBgClass="hover:bg-pink-100" />
                  </div>
                  <span className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Baghpat, UP</span>
               </div>
