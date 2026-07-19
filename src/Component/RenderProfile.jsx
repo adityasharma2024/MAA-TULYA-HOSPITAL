@@ -127,7 +127,7 @@ export default function RenderProfile() {
 function Footer() {
   const PHONE = "+919045818999";
   const EMAIL = "admin.maatulyahospital@gmail.com";
-  const ADDRESS = "Plot No. 12, Sector 9, Baghpat, Uttar Pradesh";
+  const ADDRESS = "Baghpat-Baraut Road, near Bandhan Bank, Baghpat, 250609";
 
   return (
     <footer className="bg-white border-t border-slate-100 pt-24 pb-12 px-6">

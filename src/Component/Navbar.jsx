@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useRef, memo } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { IoIosArrowDown, IoMdCall, IoMdMail } from "react-icons/io";
-import { FaFacebookF, FaInstagram, FaWhatsapp } from "react-icons/fa";
-import { FaSquareXTwitter } from "react-icons/fa6";
+import { FaFacebookF, FaInstagram, FaWhatsapp, FaYoutube } from "react-icons/fa";
 
 const SocialIcon = memo(({ Icon, href, label }) => (
   <a
@@ -61,7 +60,7 @@ function Navbar() {
         <div className={`bg-gradient-to-r from-blue-50 via-white to-blue-50 border-b border-blue-100 transition-all duration-500 overflow-hidden ${scrolled ? 'max-h-0 opacity-0' : 'max-h-20 opacity-100'}`}>
           <div className="max-w-[1440px] mx-auto flex items-center justify-between px-6 py-2">
             <div className="flex gap-4 md:gap-6 items-center text-xs md:text-sm font-sans">
-              <a href="tel:01146528024" className="flex items-center gap-2 text-gray-700 hover:text-green-700 transition-colors">
+              <a href="tel:9045818999" className="flex items-center gap-2 text-gray-700 hover:text-green-700 transition-colors">
                 <IoMdCall className="text-green-700" /> <span className="hidden sm:inline">011 4652 8024</span>
               </a>
               <a href="mailto:admin@maatulyahospital.com" className="hidden lg:flex items-center gap-2 text-gray-700 hover:text-blue-700">
@@ -69,9 +68,9 @@ function Navbar() {
               </a>
             </div>
             <div className="flex items-center gap-3">
-               <SocialIcon Icon={FaFacebookF} href="#" label="Facebook" />
-               <SocialIcon Icon={FaSquareXTwitter} href="#" label="Twitter" />
-               <SocialIcon Icon={FaInstagram} href="#" label="Instagram" />
+               <SocialIcon Icon={FaFacebookF} href="https://www.facebook.com/people/Maa-Tulya-Hospital/pfbid08nd9X8hRUPa6YYWv6VgNWHodyCFR5YnGdSZK3iCZnxvRfbtzeA5aQXLN49D3K5wcl/" label="Facebook" />
+               <SocialIcon Icon={FaYoutube} href="https://www.youtube.com/@MaaTulyaHospital" label="YouTube" />
+               <SocialIcon Icon={FaInstagram} href="https://www.instagram.com/maa_tulya_hospital?igsh=eXVnZG1hYmFpYncx" label="Instagram" />
             </div>
           </div>
         </div>

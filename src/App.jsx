@@ -15,6 +15,7 @@ const ContactUS = lazy(() => import("./Component/ContactUs"));
 const AboutUS = lazy(() => import("./Component/AboutUs"));
 const BlogsandNews = lazy(() => import("./Component/BlogsandNews"));
 const RenderBlogs = lazy(() => import("./Component/RenderBlogs"));
+const RenderSpeciality = lazy(() => import("./Component/RenderSpeciality"));
 
 // Doctor Profiles (Lazy loaded to break the chain)
 const DrPrashantSharma = lazy(() => import("./Component/Profile/DrPrashantSharma"));
@@ -40,6 +41,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/speciality" element={<Speciality />} />
+          <Route path="/speciality/:slug" element={<RenderSpeciality />} />
           <Route path="/find_a_doctor" element={<FindDoctor />} />
           <Route path="/contactUs" element={<ContactUS />} />
           <Route path="/about" element={<AboutUS />} />

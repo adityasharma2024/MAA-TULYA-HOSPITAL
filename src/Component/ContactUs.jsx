@@ -16,7 +16,8 @@ import {
   FaChevronRight,
   FaShieldAlt,
   FaUserEdit,
-  FaPaperPlane
+  FaPaperPlane,
+  FaYoutube
 } from "react-icons/fa";
 import { FaSquareXTwitter } from "react-icons/fa6";
 
@@ -39,6 +40,20 @@ const CONTACT_CONFIG = {
     { icon: <FaSquareXTwitter />, link: "#", label: "Twitter" },
   ]
 };
+const FOOTER_LINKS = [
+  { label: "Home", to: "/" },
+  { label: "About Us", to: "/about" },
+  { label: "Specialities", to: "/speciality" },
+  { label: "Doctors", to: "/find_a_doctor" },
+  { label: "Contact", to: "/contactUs" }
+];
+
+const FOOTER_SPECIALTIES = [
+  { label: "Emergency Care", to: "/speciality" },
+  { label: "Maternity & Child Care", to: "/speciality" },
+  { label: "Orthopaedics", to: "/speciality" },
+  { label: "Diagnostics", to: "/speciality" }
+];
 
 const FAQ_DATA = [
   { q: "What are the visiting hours?", a: "General visiting hours are from 10:00 AM to 1:00 PM and 5:00 PM to 8:00 PM daily." },
@@ -377,15 +392,15 @@ export default function ContactUs() {
                 Quick Links
               </h4>
               <ul className="space-y-4">
-                {["Home", "Doctors", "Services", "About Us", "Contact"].map((link) => (
-                  <li key={link}>
-                    <a 
-                      href="#" 
+                {FOOTER_LINKS.map((link) => (
+                  <li key={link.label}>
+                    <Link
+                      to={link.to}
                       className="text-slate-500 hover:text-green-600 font-bold text-sm transition-colors flex items-center gap-2 group"
                     >
                       <FaChevronRight className="text-[8px] opacity-0 group-hover:opacity-100 transition-all" />
-                      {link}
-                    </a>
+                      {link.label}
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -397,11 +412,31 @@ export default function ContactUs() {
                 Specialties
               </h4>
               <ul className="space-y-4 text-sm font-bold text-slate-500">
-                <li className="hover:text-[#3B3486] cursor-pointer">Cardiology</li>
-                <li className="hover:text-[#3B3486] cursor-pointer">Maternity & NICU</li>
-                <li className="hover:text-[#3B3486] cursor-pointer">Orthopaedics</li>
-                <li className="hover:text-[#3B3486] cursor-pointer">Neurology</li>
-                <li className="hover:text-[#3B3486] cursor-pointer">General Surgery</li>
+                <li>
+                  <Link to="/speciality#cardiology" className="block text-slate-500 hover:text-[#3B3486] transition-colors">
+                    Cardiology
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/speciality#obstetrics-gynaecology" className="block text-slate-500 hover:text-[#3B3486] transition-colors">
+                    Maternity & NICU
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/speciality#orthopaedics" className="block text-slate-500 hover:text-[#3B3486] transition-colors">
+                    Orthopaedics
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/speciality#neurology" className="block text-slate-500 hover:text-[#3B3486] transition-colors">
+                    Neurology
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/speciality" className="block text-slate-500 hover:text-[#3B3486] transition-colors">
+                    General Surgery
+                  </Link>
+                </li>
               </ul>
             </div>
 
@@ -419,7 +454,7 @@ export default function ContactUs() {
                   >
                     +919045818999
                   </a>
-                  <p className="text-slate-400 text-[10px] font-bold mb-8">Plot No. 12, Sector 9, Baghpat, Uttar Pradesh</p>
+                  <p className="text-slate-400 text-[10px] font-bold mb-8">Baghpat-Baraut Road, near Bandhan Bank, Baghpat, 250609</p>
                   <a 
                     href={`https://wa.me/919045818999`} 
                     className="flex items-center justify-center gap-3 bg-green-600 text-white py-4 rounded-2xl font-black uppercase text-[10px] tracking-widest hover:bg-[#3B3486] transition-all shadow-lg"
@@ -442,12 +477,12 @@ export default function ContactUs() {
               © 2026 Maa Tulya Hospital — Clinical Integrity & Trust
             </p>
             <div className="flex gap-8">
-              <a href="#" className="text-slate-400 text-[9px] font-black uppercase tracking-widest hover:text-[#3B3486]">
+              <Link to="/privacy" className="text-slate-400 text-[9px] font-black uppercase tracking-widest hover:text-[#3B3486]">
                 Privacy Policy
-              </a>
-              <a href="#" className="text-slate-400 text-[9px] font-black uppercase tracking-widest hover:text-[#3B3486]">
+              </Link>
+              <Link to="/terms" className="text-slate-400 text-[9px] font-black uppercase tracking-widest hover:text-[#3B3486]">
                 Terms of Use
-              </a>
+              </Link>
             </div>
           </div>
 

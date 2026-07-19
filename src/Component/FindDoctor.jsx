@@ -16,6 +16,7 @@ import {
   FaFacebookF,
   FaInstagram,
   FaLinkedinIn,
+  FaYoutube,
   FaEnvelope,
   FaMapMarkerAlt,
 } from "react-icons/fa";
@@ -122,6 +123,21 @@ const SPECIALTIES = [
   "Emergency",
   "General Medicine",
 ];
+const FOOTER_LINKS = [
+  { label: "Home", to: "/" },
+  { label: "About Us", to: "/about" },
+  { label: "Specialities", to: "/speciality" },
+  { label: "Doctors", to: "/find_a_doctor" },
+  { label: "Contact", to: "/contactUs" }
+];
+
+const FOOTER_SPECIALTIES = [
+  { label: "Cardiology", to: "/speciality#cardiology" },
+  { label: "Maternity & NICU", to: "/speciality#obstetrics-gynaecology" },
+  { label: "Orthopaedics", to: "/speciality#orthopaedics" },
+  { label: "Neurology", to: "/speciality#neurology" },
+  { label: "General Surgery", to: "/speciality" }
+];
 
 /* =========================
    FOOTER COMPONENT
@@ -133,7 +149,7 @@ const SPECIALTIES = [
 function Footer() {
   const PHONE = "+919045818999";
   const EMAIL = "admin.maatulyahospital@gmail.com";
-  const ADDRESS = "Plot No. 12, Sector 9, Baghpat, Uttar Pradesh";
+  const ADDRESS = "Baghpat-Baraut Road, near Bandhan Bank, Baghpat, 250609";
 
   return (
     <footer className="bg-white border-t border-slate-100 pt-24 pb-12 px-6">
@@ -171,19 +187,17 @@ function Footer() {
               Quick Links
             </h4>
             <ul className="space-y-4">
-              {["Home", "Doctors", "Services", "About Us", "Contact"].map(
-                (link) => (
-                  <li key={link}>
-                    <Link
-                      to={`/${link.toLowerCase().replace(" ", "-")}`}
-                      className="text-slate-500 hover:text-green-600 font-bold text-sm transition-colors flex items-center gap-2 group"
-                    >
-                      <FaChevronRight className="text-[8px] opacity-0 group-hover:opacity-100 transition-all" />
-                      {link}
-                    </Link>
-                  </li>
-                ),
-              )}
+              {FOOTER_LINKS.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    to={link.to}
+                    className="text-slate-500 hover:text-green-600 font-bold text-sm transition-colors flex items-center gap-2 group"
+                  >
+                    <FaChevronRight className="text-[8px] opacity-0 group-hover:opacity-100 transition-all" />
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -193,19 +207,13 @@ function Footer() {
               Specialties
             </h4>
             <ul className="space-y-4 text-sm font-bold text-slate-500">
-              <li className="hover:text-[#3B3486] cursor-pointer">
-                Cardiology
-              </li>
-              <li className="hover:text-[#3B3486] cursor-pointer">
-                Maternity & NICU
-              </li>
-              <li className="hover:text-[#3B3486] cursor-pointer">
-                Orthopaedics
-              </li>
-              <li className="hover:text-[#3B3486] cursor-pointer">Neurology</li>
-              <li className="hover:text-[#3B3486] cursor-pointer">
-                General Surgery
-              </li>
+              {FOOTER_SPECIALTIES.map((item) => (
+                <li key={item.label}>
+                  <Link to={item.to} className="block text-slate-500 hover:text-[#3B3486] transition-colors">
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -288,7 +296,7 @@ export default function FindDoctor() {
         <title>Our Specialists | Maa Tulya Hospital</title>
       </Helmet>
 
-      <div className="flex-grow">
+      <div className="grow">
         <AnimatePresence mode="wait">
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
             <section className="px-6 py-20 text-center">
@@ -322,7 +330,7 @@ export default function FindDoctor() {
                       </button>
                     ))}
                   </div>
-                  <div className="relative flex-grow">
+                  <div className="relative grow">
                     <FaSearch className="absolute left-7 top-1/2 -translate-y-1/2 text-slate-300" />
                     <input
                       type="text"
@@ -359,7 +367,7 @@ export default function FindDoctor() {
                       </div>
                     </div>
 
-                    <div className="p-10 flex flex-col flex-grow">
+                    <div className="p-10 flex flex-col grow">
                       <h3 className="text-2xl font-black text-[#3B3486] mb-2">
                         {doc.name}
                       </h3>

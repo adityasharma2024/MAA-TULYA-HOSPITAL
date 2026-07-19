@@ -1,14 +1,31 @@
 import React, { useState, useMemo, useEffect } from "react";
 import { Helmet } from "react-helmet";
 import { motion, AnimatePresence } from "framer-motion";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { 
   FaCalendarAlt, FaChevronRight, FaClock, FaSearch, FaArrowLeft, 
   FaInstagram, FaFacebook, FaYoutube, FaWhatsapp, FaPhoneAlt, 
   FaEnvelope, FaMapMarkerAlt, FaUserMd, FaHospital, FaStethoscope,
   FaHeartbeat, FaMicroscope, FaAmbulance, FaProcedures, FaFirstAid,
-  FaNotesMedical, FaCheckCircle, FaExternalLinkAlt, FaTwitter
+  FaNotesMedical, FaCheckCircle, FaExternalLinkAlt, FaTwitter,
+  FaLinkedinIn
 } from "react-icons/fa";
+
+const FOOTER_LINKS = [
+  { label: "Home", to: "/" },
+  { label: "About Us", to: "/about" },
+  { label: "Specialities", to: "/speciality" },
+  { label: "Doctors", to: "/find_a_doctor" },
+  { label: "Contact", to: "/contactUs" }
+];
+
+const FOOTER_SPECIALTIES = [
+  { label: "Cardiology", to: "/speciality#cardiology" },
+  { label: "Maternity & NICU", to: "/speciality#obstetrics-gynaecology" },
+  { label: "Orthopaedics", to: "/speciality#orthopaedics" },
+  { label: "Neurology", to: "/speciality#neurology" },
+  { label: "General Surgery", to: "/speciality" }
+];
 
 /**
  * ============================================================================
@@ -101,7 +118,7 @@ const CATEGORIES = ["All", "General", "Cardiology", "Maternity", "Emergency", "O
 function Footer() {
   const PHONE = "+919045818999";
   const EMAIL = "admin.maatulyahospital@gmail.com";
-  const ADDRESS = "Plot No. 12, Sector 9, Baghpat, Uttar Pradesh";
+  const ADDRESS = "Baghpat-Baraut Road, near Bandhan Bank, Baghpat, 250609";
 
   return (
     <footer className="bg-white border-t border-slate-100 pt-24 pb-12 px-6">
@@ -122,15 +139,33 @@ function Footer() {
               services with a focus on clinical excellence and patient safety.
             </p>
             <div className="flex gap-4">
-              {[FaFacebook, FaInstagram].map((Icon, i) => (
-                <a 
-                  key={i} 
-                  href="#" 
-                  className="w-10 h-10 rounded-xl bg-slate-50 flex items-center justify-center text-[#3B3486] hover:bg-green-600 hover:text-white transition-all shadow-sm"
-                >
-                  <Icon size={14} />
-                </a>
-              ))}
+              <a
+                href="https://www.facebook.com/people/Maa-Tulya-Hospital/pfbid08nd9X8hRUPa6YYWv6VgNWHodyCFR5YnGdSZK3iCZnxvRfbtzeA5aQXLN49D3K5wcl/"
+                target="_blank"
+                rel="noreferrer"
+                className="w-10 h-10 rounded-xl bg-slate-50 flex items-center justify-center text-[#3B3486] hover:bg-green-600 hover:text-white transition-all shadow-sm"
+                aria-label="Facebook"
+              >
+                <FaFacebook size={14} />
+              </a>
+              <a
+                href="https://www.instagram.com/maa_tulya_hospital?igsh=eXVnZG1hYmFpYncx"
+                target="_blank"
+                rel="noreferrer"
+                className="w-10 h-10 rounded-xl bg-slate-50 flex items-center justify-center text-[#3B3486] hover:bg-green-600 hover:text-white transition-all shadow-sm"
+                aria-label="Instagram"
+              >
+                <FaInstagram size={14} />
+              </a>
+              <a
+                href="https://www.youtube.com/@MaaTulyaHospital"
+                target="_blank"
+                rel="noreferrer"
+                className="w-10 h-10 rounded-xl bg-slate-50 flex items-center justify-center text-[#3B3486] hover:bg-green-600 hover:text-white transition-all shadow-sm"
+                aria-label="YouTube"
+              >
+                <FaYoutube size={14} />
+              </a>
             </div>
           </div>
 
@@ -140,15 +175,15 @@ function Footer() {
               Quick Links
             </h4>
             <ul className="space-y-4">
-              {["Home", "Doctors", "Services", "About Us", "Contact"].map((link) => (
-                <li key={link}>
-                  <a 
-                    href="#" 
+              {FOOTER_LINKS.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    to={link.to}
                     className="text-slate-500 hover:text-green-600 font-bold text-sm transition-colors flex items-center gap-2 group"
                   >
                     <FaChevronRight className="text-[8px] opacity-0 group-hover:opacity-100 transition-all" />
-                    {link}
-                  </a>
+                    {link.label}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -160,11 +195,13 @@ function Footer() {
               Specialties
             </h4>
             <ul className="space-y-4 text-sm font-bold text-slate-500">
-              <li className="hover:text-[#3B3486] cursor-pointer">Cardiology</li>
-              <li className="hover:text-[#3B3486] cursor-pointer">Maternity & NICU</li>
-              <li className="hover:text-[#3B3486] cursor-pointer">Orthopaedics</li>
-              <li className="hover:text-[#3B3486] cursor-pointer">Neurology</li>
-              <li className="hover:text-[#3B3486] cursor-pointer">General Surgery</li>
+              {FOOTER_SPECIALTIES.map((item) => (
+                <li key={item.label}>
+                  <Link to={item.to} className="block text-slate-500 hover:text-[#3B3486] transition-colors">
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -205,12 +242,12 @@ function Footer() {
             © 2026 Maa Tulya Hospital — Clinical Integrity & Trust
           </p>
           <div className="flex gap-8">
-            <a href="#" className="text-slate-400 text-[9px] font-black uppercase tracking-widest hover:text-[#3B3486]">
+            <Link to="/privacy" className="text-slate-400 text-[9px] font-black uppercase tracking-widest hover:text-[#3B3486]">
               Privacy Policy
-            </a>
-            <a href="#" className="text-slate-400 text-[9px] font-black uppercase tracking-widest hover:text-[#3B3486]">
+            </Link>
+            <Link to="/terms" className="text-slate-400 text-[9px] font-black uppercase tracking-widest hover:text-[#3B3486]">
               Terms of Use
-            </a>
+            </Link>
           </div>
         </div>
 
@@ -244,7 +281,7 @@ export default function BlogsAndNews() {
         <title>Insights & News | Maa Tulya Hospital</title>
       </Helmet>
 
-      <div className="flex-grow">
+      <div className="grow">
         <motion.div 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -325,7 +362,7 @@ export default function BlogsAndNews() {
                               {post.category}
                             </div>
                           </div>
-                          <div className="p-10 flex flex-col flex-grow">
+                          <div className="p-10 flex flex-col grow">
                             <div className="flex gap-4 text-slate-300 text-[10px] font-black uppercase tracking-widest mb-6">
                               <span className="flex items-center gap-1.5"><FaCalendarAlt className="text-green-500" /> {post.date}</span>
                               <span className="flex items-center gap-1.5"><FaClock className="text-green-500" /> {post.readTime}</span>
@@ -361,7 +398,7 @@ export default function BlogsAndNews() {
               {/* SOCIAL CONNECT BANNER */}
               <section className="px-6 mb-40">
                 <div className="max-w-7xl mx-auto">
-                  <div className="bg-gradient-to-br from-[#3B3486] to-[#1E1B4B] rounded-[4rem] p-12 md:p-24 text-center relative overflow-hidden group">
+                  <div className="bg-linear-to-br from-[#3B3486] to-[#1E1B4B] rounded-[4rem] p-12 md:p-24 text-center relative overflow-hidden group">
                     <FaAmbulance className="absolute -bottom-20 -left-20 text-[20rem] text-white/5 -rotate-12 group-hover:rotate-0 transition-transform duration-1000" />
                     <div className="relative z-10 max-w-4xl mx-auto">
                       <span className="text-green-400 font-black uppercase text-[10px] tracking-[0.4em] mb-8 block">Stay Connected Digitally</span>
@@ -370,14 +407,16 @@ export default function BlogsAndNews() {
                       </h2>
                       <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
                         {[
-                          { name: "Instagram", icon: <FaInstagram />, handle: "@maatulyahospital", color: "hover:bg-pink-600" },
-                          { name: "Facebook", icon: <FaFacebook />, handle: "Maa Tulya Health", color: "hover:bg-blue-600" },
-                          { name: "YouTube", icon: <FaYoutube />, handle: "Maa Tulya TV", color: "hover:bg-red-600" },
-                          { name: "Twitter", icon: <FaTwitter />, handle: "@MaaTulya", color: "hover:bg-sky-500" }
+                          { name: "Instagram", icon: <FaInstagram />, handle: "@maatulyahospital", color: "hover:bg-pink-600", url: "https://www.instagram.com/maa_tulya_hospital?igsh=eXVnZG1hYmFpYncx" },
+                          { name: "Facebook", icon: <FaFacebook />, handle: "Maa Tulya Health", color: "hover:bg-blue-600", url: "https://www.facebook.com/people/Maa-Tulya-Hospital/pfbid08nd9X8hRUPa6YYWv6VgNWHodyCFR5YnGdSZK3iCZnxvRfbtzeA5aQXLN49D3K5wcl/" },
+                          { name: "YouTube", icon: <FaYoutube />, handle: "Maa Tulya TV", color: "hover:bg-red-600", url: "https://www.youtube.com/@MaaTulyaHospital" },
+                          { name: "Twitter", icon: <FaTwitter />, handle: "@MaaTulya", color: "hover:bg-sky-500", url: "https://x.com/" }
                         ].map((social, i) => (
                           <motion.a 
                             key={i} 
-                            href="#" 
+                            href={social.url}
+                            target="_blank"
+                            rel="noreferrer"
                             whileHover={{ y: -10 }}
                             className={`bg-white/5 border border-white/10 p-8 rounded-[2.5rem] flex flex-col items-center gap-4 transition-all duration-300 ${social.color} group/item`}
                           >

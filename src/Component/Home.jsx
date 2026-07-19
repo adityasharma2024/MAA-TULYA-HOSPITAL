@@ -7,7 +7,7 @@ import {
   FaWhatsapp,
   FaFacebookF,
   FaInstagram,
-  FaLinkedinIn,
+  FaYoutube,
   FaEnvelope,
   FaMapMarkerAlt,
   FaChevronLeft,
@@ -210,9 +210,9 @@ const JSON_LD = {
   telephone: "+91-9045818999",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Plot No. 12, Sector 9",
-    addressLocality: "Baghpat",
-    postalCode: "250001",
+    streetAddress: "Baraut Road",
+    addressLocality: "Near Bandhan Bank , Baghpat",
+    postalCode: "250609",
     addressCountry: "IN",
   },
   sameAs: ["https://www.facebook.com/your-hospital-page", "https://www.linkedin.com/company/your-hospital"],
@@ -225,6 +225,22 @@ const SERVICES_DATA = [
   { title: "Maternity", blurb: "Compassionate mother and child care with modern labor suites.", icon: <FaBaby />, color: "bg-pink-50 text-pink-600" },
   { title: "Paediatrics", blurb: "Dedicated healthcare for infants and children in a friendly environment.", icon: <FaSyringe />, color: "bg-green-50 text-green-600" },
   { title: "Diagnostics", blurb: "Fully automated lab and digital X-ray for precise medical reporting.", icon: <FaMicroscope />, color: "bg-purple-50 text-purple-600" },
+];
+
+const FOOTER_LINKS = [
+  { label: "Home", to: "/" },
+  { label: "Doctors", to: "/find_a_doctor" },
+  { label: "Services", to: "/speciality" },
+  { label: "About Us", to: "/about" },
+  { label: "Contact", to: "/contactUs" },
+];
+
+const FOOTER_SPECIALTIES = [
+  { label: "Cardiology", to: "/speciality#cardiology" },
+  { label: "Maternity & NICU", to: "/speciality#obstetrics-gynaecology" },
+  { label: "Orthopaedics", to: "/speciality#orthopaedics" },
+  { label: "Neurology", to: "/speciality#neurology" },
+  { label: "General Surgery", to: "/speciality" },
 ];
 /* =======================================================
    Helper Hooks & Utilities
@@ -682,7 +698,7 @@ export default function Home() {
                         <div className="bg-gray-50 p-6 rounded-xl shadow">
                               <p className="font-semibold text-slate-900">Address</p>
                               <p className="mt-2 text-slate-600">
-                                    Plot No. 12, Sector 9, Baghpat, Uttar Pradesh
+                                    Baghpat-Baraut Road, near Bandhan Bank, Baghpat, 250609
                               </p>
 
                               <p className="mt-4 flex items-center gap-2 text-slate-700">
@@ -778,7 +794,7 @@ export default function Home() {
 function Footer() {
   const PHONE = "+919045818999";
   const EMAIL = "admin.maatulyahospital@gmail.com";
-  const ADDRESS = "Plot No. 12, Sector 9, Baghpat, Uttar Pradesh";
+  const ADDRESS = "Baghpat-Baraut Road, near Bandhan Bank, Baghpat, 250609";
 
   return (
     <footer className="bg-white border-t border-slate-100 pt-24 pb-12 px-6">
@@ -799,15 +815,33 @@ function Footer() {
               services with a focus on clinical excellence and patient safety.
             </p>
             <div className="flex gap-4">
-              {[FaFacebookF, FaInstagram, FaLinkedinIn].map((Icon, i) => (
-                <a 
-                  key={i} 
-                  href="#" 
-                  className="w-10 h-10 rounded-xl bg-slate-50 flex items-center justify-center text-[#3B3486] hover:bg-green-600 hover:text-white transition-all shadow-sm"
-                >
-                  <Icon size={14} />
-                </a>
-              ))}
+              <a
+                href="https://www.facebook.com/people/Maa-Tulya-Hospital/pfbid08nd9X8hRUPa6YYWv6VgNWHodyCFR5YnGdSZK3iCZnxvRfbtzeA5aQXLN49D3K5wcl/"
+                target="_blank"
+                rel="noreferrer"
+                className="w-10 h-10 rounded-xl bg-slate-50 flex items-center justify-center text-[#3B3486] hover:bg-green-600 hover:text-white transition-all shadow-sm"
+                aria-label="Facebook"
+              >
+                <FaFacebookF size={14} />
+              </a>
+              <a
+                href="https://www.instagram.com/maa_tulya_hospital?igsh=eXVnZG1hYmFpYncx"
+                target="_blank"
+                rel="noreferrer"
+                className="w-10 h-10 rounded-xl bg-slate-50 flex items-center justify-center text-[#3B3486] hover:bg-green-600 hover:text-white transition-all shadow-sm"
+                aria-label="Instagram"
+              >
+                <FaInstagram size={14} />
+              </a>
+              <a
+                href="https://www.youtube.com/@MaaTulyaHospital"
+                target="_blank"
+                rel="noreferrer"
+                className="w-10 h-10 rounded-xl bg-slate-50 flex items-center justify-center text-[#3B3486] hover:bg-green-600 hover:text-white transition-all shadow-sm"
+                aria-label="YouTube"
+              >
+                <FaYoutube size={14} />
+              </a>
             </div>
           </div>
 
@@ -817,14 +851,14 @@ function Footer() {
               Quick Links
             </h4>
             <ul className="space-y-4">
-              {["Home", "Doctors", "Services", "About Us", "Contact"].map((link) => (
-                <li key={link}>
+              {FOOTER_LINKS.map((link) => (
+                <li key={link.label}>
                   <Link 
-                    to={`/${link.toLowerCase().replace(" ", "-")}`} 
+                    to={link.to} 
                     className="text-slate-500 hover:text-green-600 font-bold text-sm transition-colors flex items-center gap-2 group"
                   >
                     <FaChevronRight className="text-[8px] opacity-0 group-hover:opacity-100 transition-all" />
-                    {link}
+                    {link.label}
                   </Link>
                 </li>
               ))}
@@ -837,11 +871,13 @@ function Footer() {
               Specialties
             </h4>
             <ul className="space-y-4 text-sm font-bold text-slate-500">
-              <li className="hover:text-[#3B3486] cursor-pointer">Cardiology</li>
-              <li className="hover:text-[#3B3486] cursor-pointer">Maternity & NICU</li>
-              <li className="hover:text-[#3B3486] cursor-pointer">Orthopaedics</li>
-              <li className="hover:text-[#3B3486] cursor-pointer">Neurology</li>
-              <li className="hover:text-[#3B3486] cursor-pointer">General Surgery</li>
+              {FOOTER_SPECIALTIES.map((item) => (
+                <li key={item.label}>
+                  <Link to={item.to} className="block text-slate-500 hover:text-[#3B3486] transition-colors">
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
