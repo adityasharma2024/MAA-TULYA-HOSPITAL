@@ -36,7 +36,7 @@ const DOCTORS_DATABASE = [
     experience: "15+ Years",
     rating: 4.9,
     availability: "9:00 AM - 5:00 PM",
-    img: "",
+    img: "./src/Component/assets/Dr_Prashant_Sharma.jpeg",
     bio: "Specializes in chronic disease management, preventive care, and holistic treatment approaches./n He has a strong background in patient education and lifestyle modification.",
     phone: "+91 9045818999",
   },

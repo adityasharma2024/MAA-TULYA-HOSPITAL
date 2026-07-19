@@ -29,10 +29,10 @@ import { FaSquareXTwitter } from "react-icons/fa6";
 
 const CONTACT_CONFIG = {
   phones: ["+91 9045818999", "+91 01212222999"],
-  whatsappNumber: "919045818999",
+  whatsappNumber: "+91 9045818999",
   email: "admin.maatulyahospital@gmail.com",
-  address: "Plot No. 12, Sector 9, Dwarka, New Delhi",
-  mapSrc: "https://www.google.com/maps?q=Baghpat%20Uttar%20Pradesh&output=embed",
+  address: "Baghpat-Baraut Road, near Bandhan Bank, Baghpat, 250609",
+  mapSrc: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3491.3197391006834!2d77.21598091109145!3d28.94823947539167!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390c53004bcb0e3f%3A0x22218d5fbeadc4b3!2sMAA%20TULYA%20HOSPITAL!5e0!3m2!1sen!2sin!4v1784474578803!5m2!1sen!2sin",
   socials: [
     { icon: <FaFacebookF />, link: "#", label: "Facebook" },
     { icon: <FaInstagram />, link: "#", label: "Instagram" },
@@ -449,10 +449,10 @@ export default function ContactUs() {
                     Emergency Desk
                   </h4>
                   <a 
-                    href={`tel:+91 9045818999`} 
+                    href={`tel:+919045818999`} 
                     className="text-2xl font-black text-[#3B3486] hover:text-green-600 transition-colors block mb-2"
                   >
-                    +91 9045818999
+                    +919045818999
                   </a>
                   <p className="text-slate-400 text-[10px] font-bold mb-8">Baghpat-Baraut Road, near Bandhan Bank, Baghpat, 250609</p>
                   <a 

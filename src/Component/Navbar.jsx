@@ -124,7 +124,7 @@ function Navbar() {
                 ))}
 
                 <a href={`tel:${EMERGENCY_NUMBER}`} className="group flex items-center px-6 py-2.5 rounded-full text-white font-bold transition-all duration-500 hover:scale-105 shadow-lg bg-gradient-to-r from-red-600 to-orange-500">
-                  <img src="/public/emergency.webp" alt="Ambulance" className="h-6 w-6 mr-3 group-hover:animate-bounce" />
+                  <img src="/emergency.webp" alt="Ambulance" className="h-6 w-6 mr-3 group-hover:animate-bounce" />
                   <div className="flex flex-col leading-none">
                     <span className="text-[9px] opacity-90 uppercase font-black">Emergency</span>
                     <span className="text-base font-sans tracking-tight">{EMERGENCY_NUMBER}</span>

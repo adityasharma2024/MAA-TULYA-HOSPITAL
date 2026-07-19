@@ -526,7 +526,7 @@ export default function AboutUs() {
             <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-lg">
               <iframe
                 title="Maa Tulya Hospital location"
-                src="https://www.google.com/maps?q=Baghpat%20Uttar%20Pradesh&output=embed"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3491.3197391006834!2d77.21598091109145!3d28.94823947539167!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390c53004bcb0e3f%3A0x22218d5fbeadc4b3!2sMAA%20TULYA%20HOSPITAL!5e0!3m2!1sen!2sin!4v1784474578803!5m2!1sen!2sin"
                 className="h-[420px] w-full border-0"
                 loading="lazy"
               />
