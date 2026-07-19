@@ -27,8 +27,8 @@ import { FaSquareXTwitter } from "react-icons/fa6";
  */
 
 const CONTACT_CONFIG = {
-  phones: ["+91 8588831732", "+91 9873754555"],
-  whatsappNumber: "918588831732",
+  phones: ["+91 9045818999", "+91 01212222999"],
+  whatsappNumber: "919045818999",
   email: "admin.maatulyahospital@gmail.com",
   address: "Plot No. 12, Sector 9, Dwarka, New Delhi",
   mapSrc: "https://www.google.com/maps?q=Baghpat%20Uttar%20Pradesh&output=embed",
@@ -414,14 +414,14 @@ export default function ContactUs() {
                     Emergency Desk
                   </h4>
                   <a 
-                    href={`tel:+918588831732`} 
+                    href={`tel:+919045818999`} 
                     className="text-2xl font-black text-[#3B3486] hover:text-green-600 transition-colors block mb-2"
                   >
-                    +918588831732
+                    +919045818999
                   </a>
                   <p className="text-slate-400 text-[10px] font-bold mb-8">Plot No. 12, Sector 9, Baghpat, Uttar Pradesh</p>
                   <a 
-                    href={`https://wa.me/918588831732`} 
+                    href={`https://wa.me/919045818999`} 
                     className="flex items-center justify-center gap-3 bg-green-600 text-white py-4 rounded-2xl font-black uppercase text-[10px] tracking-widest hover:bg-[#3B3486] transition-all shadow-lg"
                   >
                     <FaWhatsapp size={16} /> WhatsApp Support

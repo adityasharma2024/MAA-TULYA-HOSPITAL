@@ -207,7 +207,7 @@ const JSON_LD = {
   logo: "https://maa-tulya-hospital.web.app/logo.png",
   description:
     "Maa Tulya Hospital is a multi-speciality hospital in Baghpat offering emergency services, diagnostics, and a wide range of specialties.",
-  telephone: "+91-8588831732",
+  telephone: "+91-9045818999",
   address: {
     "@type": "PostalAddress",
     streetAddress: "Plot No. 12, Sector 9",
@@ -270,7 +270,7 @@ export default function Home() {
   const filteredDoctors = selectedSpecialty === "All" ? DOCTORS_DATABASE : DOCTORS_DATABASE.filter(doc => doc.specialty === selectedSpecialty);
 
   // phone & email used across CTAs (clickable)
-  const PHONE = "+918588831732";
+  const PHONE = "+919045818999";
   const EMAIL = "admin.maatulyahospital@gmail.com";
 
   // autoplay behavior
@@ -776,7 +776,7 @@ export default function Home() {
  * Theme: Light / Minimalist / Medical Professional
  */
 function Footer() {
-  const PHONE = "+918588831732";
+  const PHONE = "+919045818999";
   const EMAIL = "admin.maatulyahospital@gmail.com";
   const ADDRESS = "Plot No. 12, Sector 9, Baghpat, Uttar Pradesh";
 

@@ -20,7 +20,7 @@ import {
 /* =========================
    CONSTANTS & DATA
    ========================= */
-const PHONE = "+918588831732";
+const PHONE = "+919045818999";
 const EMAIL = "admin.maatulyahospital@gmail.com";
 
 const TESTIMONIALS = [
@@ -42,7 +42,7 @@ const TESTIMONIALS = [
  * Theme: Light / Minimalist / Medical Professional
  */
 function Footer() {
-  const PHONE = "+918588831732";
+  const PHONE = "+919045818999";
   const EMAIL = "admin.maatulyahospital@gmail.com";
   const ADDRESS = "Plot No. 12, Sector 9, Baghpat, Uttar Pradesh";
 
