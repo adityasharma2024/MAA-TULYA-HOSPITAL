@@ -36,7 +36,7 @@ const DOCTORS_DATABASE = [
     availability: "9:00 AM - 5:00 PM",
     img: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=800",
     bio: "Senior Consultant in Interventional Cardiology with expertise in complex coronary interventions.",
-    phone: "+918445741993",
+    phone: "+919045818999",
   },
   {
     id: 2,
@@ -48,7 +48,7 @@ const DOCTORS_DATABASE = [
     availability: "10:00 AM - 4:00 PM",
     img: "https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=800",
     bio: "Specializing in high-risk pregnancies, infertility treatments, and laparoscopic surgeries.",
-    phone: "+918445741993",
+    phone: "+919045818999",
   },
   {
     id: 3,
@@ -60,7 +60,7 @@ const DOCTORS_DATABASE = [
     availability: "11:00 AM - 6:00 PM",
     img: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=800",
     bio: "Dedicated to joint reconstruction and sports medicine, performing over 500+ knee replacements annually.",
-    phone: "+918445741993",
+    phone: "+919045818999",
   },
   {
     id: 4,
@@ -72,7 +72,7 @@ const DOCTORS_DATABASE = [
     availability: "9:30 AM - 3:30 PM",
     img: "https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=800",
     bio: "Focuses on stroke management, epilepsy, and neuro-muscular disorders.",
-    phone: "+918445741993",
+    phone: "+919045818999",
   },
   {
     id: 5,
@@ -84,7 +84,7 @@ const DOCTORS_DATABASE = [
     availability: "10:00 AM - 7:00 PM",
     img: "https://images.unsplash.com/photo-1559839734-2b71f1536783?auto=format&fit=crop&w=800",
     bio: "Expert in newborn care and childhood developmental disorders.",
-    phone: "+918445741993",
+    phone: "+919045818999",
   },
   {
     id: 6,
@@ -96,7 +96,7 @@ const DOCTORS_DATABASE = [
     availability: "24/7 (On Call)",
     img: "https://images.unsplash.com/photo-1622902046580-2b47f47f0871?auto=format&fit=crop&w=800",
     bio: "Head of Trauma and Emergency, specializing in critical care and life support.",
-    phone: "+918445741993",
+    phone: "+919045818999",
   },
   {
     id: 7,
@@ -108,7 +108,7 @@ const DOCTORS_DATABASE = [
     availability: "8:00 AM - 2:00 PM",
     img: "https://images.unsplash.com/photo-1614608682850-e0d6ed316d47?auto=format&fit=crop&w=800",
     bio: "Comprehensive care for chronic lifestyle diseases like Diabetes and Hypertension.",
-    phone: "+918445741993",
+    phone: "+919045818999",
   },
 ];
 

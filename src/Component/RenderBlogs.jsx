@@ -231,7 +231,7 @@ export default function RenderBlogs() {
               <FaHeartbeat className="absolute -bottom-10 -right-10 text-[12rem] text-white/5 group-hover:scale-110 transition-transform duration-1000" />
               <h4 className="text-2xl font-black mb-4 relative z-10 leading-tight">Contact Maa Tulya Emergency</h4>
               <p className="text-white/60 text-sm mb-10 relative z-10">Our 24/7 trauma center is always ready to assist you in Baghpat.</p>
-              <a href="tel:8445741993" className="block w-full bg-green-500 text-center py-5 rounded-2xl font-black uppercase text-[10px] tracking-widest hover:bg-white hover:text-[#3B3486] transition-all relative z-10 shadow-xl shadow-black/20">
+              <a href="tel:9045818999" className="block w-full bg-green-500 text-center py-5 rounded-2xl font-black uppercase text-[10px] tracking-widest hover:bg-white hover:text-[#3B3486] transition-all relative z-10 shadow-xl shadow-black/20">
                 Call Helpline
               </a>
             </div>

@@ -22,7 +22,7 @@ function Navbar() {
   const [openDropdown, setOpenDropdown] = useState(null);
   const scrolledRef = useRef(false);
   const navigate = useNavigate();
-  const EMERGENCY_NUMBER = "8445741993";
+  const EMERGENCY_NUMBER = "9045818999";
 
   // STABLE SCROLL ENGINE: Prevents jitter by preserving a single listener and avoiding repeated state updates
   useEffect(() => {
